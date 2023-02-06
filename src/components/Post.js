@@ -28,7 +28,7 @@ function Post(props) {
               <RichText content={post.content.raw} />
             </div>
             <div className="post-author-info">
-              <span><p>See all articles by <NavLink to={'/author/' + post.author.name.toLowerCase().replace(" ", "-")}>{post.author.name}</NavLink></p></span>
+              <span><p>See all articles by <NavLink to={'/author/' + post.author.name.toLowerCase().replaceAll(" ", "-")}>{post.author.name}</NavLink></p></span>
             </div>
           </div>
         )

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar.js";
 import { request } from 'graphql-request';
+import Footer from "./components/Footer.js";
 
 
 
@@ -122,6 +123,7 @@ const fetchData = async() => {
   return (
     <div className="App">
       <Navbar data={data}/>
+      <Footer />
     </div>
   );
 }

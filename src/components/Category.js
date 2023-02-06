@@ -9,7 +9,7 @@ function Category(props) {
       const categories = props.data.categories;
 
       // Filtering chosen category
-      const categoryPosts = categories.filter(category => category.categoryName.replace(" ", "-") === id)
+      const categoryPosts = categories.filter(category => category.categoryName.replaceAll(" ", "-") === id)
 
       // Sorting all posts in descending order
       categoryPosts[0].posts.sort(function(post1, post2) {
@@ -17,10 +17,15 @@ function Category(props) {
       })
 
       if(categoryPosts.length) {
+        const categoryName = categoryPosts[0].categoryName.replaceAll(" " , "-")
         const [matchedPosts] = categoryPosts
-
+        console.log(categoryName)
         return (
-          <Pagination data={matchedPosts} />
+          <Pagination
+            data={matchedPosts.posts}
+            itemsPerPage={3}
+            pageRoute={`category/`+ categoryName}
+          />
         )
       } else {
         return <div className='not-found'>Page not found</div>

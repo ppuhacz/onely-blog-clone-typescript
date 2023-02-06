@@ -1,55 +1,64 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-
-// Perhaps change it to use navlinks instead ????????????
+import { useEffect } from "react";
+import { NavLink, useParams, Navigate } from "react-router-dom";
 
 function Pagination(props) {
 
-  // Creating a state to keep track of current page
-  const [currentPage, setCurrentPage] = useState(0);
+  // Creating a variable to keep track of current page
 
-  if (props.data.posts.length) {
-    // Creating a pagination with 3 pages per site
-    const pages = [];
-    for (let i=0; i < props.data.posts.length; i += 3) {
-      pages.push(props.data.posts.slice(i, i+3))
-    }
+  let { page } = useParams();
+  const currentPageNumber = (page ? Number(page) : 1);
 
-    // Creating a function to handle pagination buttons
-    function handlePreviousClick() {
-      if(currentPage > 0) {
-        setCurrentPage(currentPage - 1)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPageNumber]);
+
+  const data = props.data;
+  const itemsPerPage = props.itemsPerPage;
+  const pageRoute = props.pageRoute;
+
+  if (data.length) {
+
+    // Creating a pagination with `itemsPerPage` items per site
+    const pages = [{}, ];
+    for (let i = 0; i < data.length; i += itemsPerPage) {
+      if ( i >= 0) {
+        pages.push(data.slice(i, i + itemsPerPage))
       }
     }
 
-    function handleNextClick() {
-      if(currentPage < pages.length - 1) {
-        setCurrentPage(currentPage + 1)
-      }
+    // Getting all the items that should be displayed on current page and rendering them
+    const currentPage = pages[currentPageNumber];
+    const itemsDisplayed = []
+
+    // Making a redirect funtion so you can't access the /pageRoute/0 url
+    if (currentPageNumber === 0) {
+      return <Navigate to={`/${pageRoute}/1`} />
     }
 
-    // Getting all the posts that should be displayed on current page and rendering them
-    const page = pages[currentPage];
-    const postsDisplayed = []
-
-    page.forEach((post) => {
-      postsDisplayed.push (
-        <NavLink to={'/post/' + post.slug} key={post.slug}>
-          <div className="recent-post">
-            <img src={post.coverImage.url} alt='Post cover' />
-            <span><p>{post.author.name},</p><p>{post.date}</p></span>
-            <span><h3>{post.title}</h3></span>
+    currentPage.forEach((item, index) => {
+      itemsDisplayed.push (
+        <NavLink to={`/post/${item.slug}`} key={index}>
+          <div className="recent-item">
+            <img src={item.coverImage.url} alt='Item cover' />
+            <span><p>{item.author.name},</p><p>{item.date}</p></span>
+            <span><h3>{item.title}</h3></span>
           </div>
         </NavLink>
     )})
 
     return (
       <main>
-        <div className="all-posts-container">
-          {postsDisplayed}
+        <div className="all-items-container">
+          {itemsDisplayed}
           <span>
-            {currentPage === 0 ? '' : <button onClick={handlePreviousClick}>← Previous</button>}
-            {currentPage === pages.length - 1 ? '' : <button onClick={handleNextClick}>Next →</button>}
+            {currentPageNumber === 1 ? '' : <NavLink to={`/${pageRoute}/${currentPageNumber - 1}`}>
+                ← Previous
+              </NavLink>
+            }
+            {currentPageNumber === pages.length - 1 ? '' : <NavLink to={`/${pageRoute}/${currentPageNumber + 1}`}>
+                Next →
+              </NavLink>
+            }
           </span>
         </div>
       </main>
