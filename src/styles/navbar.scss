@@ -1,0 +1,26 @@
+@import "variables.scss";
+
+nav {
+  width: 100vw;
+  background-color: $darkbackground;
+  color: white;
+  margin: 0;
+  padding: 3vh 10vw 3vh;
+}
+
+li {
+  list-style-type: none;
+  padding: 0;
+  line-height: 3.6vh;
+  font: {
+    size: 1.15rem;
+    weight: bold;
+  }
+}
+.nav-link {
+  color: $lighttext;
+  text-decoration: none;
+}
+.categories {
+  display: none;
+}

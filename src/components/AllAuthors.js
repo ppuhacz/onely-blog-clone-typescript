@@ -4,7 +4,7 @@ export default function AllAuthors(props) {
 
   if(props) {
     let allAuthors = props.data.authors
-    console.log(allAuthors)
+
 
     const socialMediaStyles = {
       color: '#3dd44f',
@@ -24,7 +24,7 @@ export default function AllAuthors(props) {
           {author.socialMedia.linkedIn ? <a href={author.socialMedia.linkedIn}><i className="fa fa-linkedin" style={socialMediaStyles}></i></a> : '' }
         </div>
       )
-        console.log(authorsList)
+
 
     })
     return (

@@ -19,7 +19,7 @@ function Category(props) {
       if(categoryPosts.length) {
         const categoryName = categoryPosts[0].categoryName.replaceAll(" " , "-")
         const [matchedPosts] = categoryPosts
-        console.log(categoryName)
+
         return (
           <Pagination
             data={matchedPosts.posts}

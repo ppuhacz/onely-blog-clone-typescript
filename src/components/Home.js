@@ -1,32 +1,32 @@
 import { NavLink } from "react-router-dom";
+import "../styles/home.scss";
 
 function Home (props) {
   if (props.data) {
   const allPosts = props.data.posts;
 
-  //Looking for the recommended post to display at the top of the site
+  //Searching for the recommended post to display at the top of the site
   const recommendedPost = allPosts.filter(post => post.recommendedPost === true)
-  // console.log(recommendedPost)
 
   const recommendedPostPanel = [];
   if(recommendedPost.length) {
     recommendedPost.forEach(post => {
       recommendedPostPanel.push(
-        <div className="recommended-post">
+        <div className="recommended-post" key={post.slug}>
           <div className="recommended-post-cover">
-            <NavLink to={'/post/' + post.slug}>
+            <NavLink to={'/post/' + post.slug} >
               <img src={post.coverImage.url} alt='Post cover' />
             </NavLink>
           </div>
           <div className="recommended-post-text">
-            <span><p>RECOMMENDED POST</p>   {post.date}</span>
+            <span><p className="recommended-post-recommended">RECOMMENDED POST</p> <p className="recommended-post-date">{post.date}</p></span>
             <br/>
-            <span><h2>{post.title}</h2></span>
+            <span><h2 className="recommended-post-title">{post.title}</h2></span>
             <br/>
-            <span><p>{post.excerpt}</p></span>
+            <span><p className="recommended-post-excerpt">{post.excerpt}</p></span>
             <br />
-            <NavLink to={'/post/' + post.slug}>
-              <span><p>Read more!</p></span>
+            <NavLink to={'/post/' + post.slug} className="recommended-post-read-more">
+              <span><p >Read more →</p></span>
             </NavLink>
           </div>
         </div>
@@ -44,7 +44,7 @@ function Home (props) {
   const mostRecentPosts = [];
   threeLatestPosts.forEach(post => {
     mostRecentPosts.push(
-    <NavLink to={'/post/' + post.slug}>
+    <NavLink to={'/post/' + post.slug} key={post.slug}>
       <div className="recent-post">
         <img src={post.coverImage.url} alt='Post cover' />
         <span><p>{post.author.name},</p><p>{post.date}</p></span>
@@ -64,7 +64,7 @@ function Home (props) {
   const latestKnowledgeBasePosts = [];
   allKnowledgeBasePosts.slice(0,3).forEach(post => {
     latestKnowledgeBasePosts.push(
-      <NavLink to={'/posts/' + post.slug}>
+      <NavLink to={'/posts/' + post.slug} key={post.slug}>
         <div className="recent-post">
           <img src={post.coverImage.url} alt='Post cover' />
           <span><p>{post.author.name},</p><p>{post.date}</p></span>
@@ -92,22 +92,26 @@ function Home (props) {
 
   return (
     <main>
-      <section className="recommended-post">
-        {recommendedPostPanel}
-      </section>
-      <section className="posts">
-        {mostRecentPosts}
-      </section>
-      <section className="knowledge-base-display">
-        <h1>KNOWDLEGE BASE PLACEHOLDER</h1>
-        {latestKnowledgeBasePosts}
-      </section>
-      <section className="posts">
-        {recentPosts}
-        <NavLink to='/posts'>
-          All posts...
-        </NavLink>
-      </section>
+      <div className="home-page-container">
+        <section className="recommended-post-section">
+          <div className="recommended-post-container">
+            {recommendedPostPanel}
+          </div>
+        </section>
+        <section className="posts">
+          {mostRecentPosts}
+        </section>
+        <section className="knowledge-base-display">
+          <h1>KNOWDLEGE BASE PLACEHOLDER</h1>
+          {latestKnowledgeBasePosts}
+        </section>
+        <section className="posts">
+          {recentPosts}
+          <NavLink to='/posts/1'>
+            All posts...
+          </NavLink>
+        </section>
+      </div>
     </main>
   )
   }

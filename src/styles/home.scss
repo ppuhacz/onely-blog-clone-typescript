@@ -1,0 +1,67 @@
+@import "variables.scss";
+
+.recommended-post-container {
+  background-color: $darkbackground;
+  padding: {
+    bottom: 3rem;
+  }
+}
+.recommended-post {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 80%;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  color: #FFF;
+}
+.recommended-post-text span {
+  display: flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  padding: {
+    top: 0.8rem;
+  }
+
+}
+.recommended-post-recommended {
+  color: $greentext;
+  padding: 0
+}
+.recommended-post-title {
+  padding: 0
+}
+.recommended-post-date {
+  color: $datetext;
+}
+.recommended-post-excerpt{
+ color: $lighttext;
+ font-size: 1.2rem;
+ line-height: 2rem;
+}
+.recommended-post-read-more {
+  text-decoration: none;
+  color: $greentext
+}
+.posts {
+  width: 80%;
+  margin: {
+    top: 3rem;
+    left: auto;
+    right: auto;
+  }
+}
+.knowledge-base-display {
+  width: 80%;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+main img {
+  width: 80vw;
+  margin: auto;
+}

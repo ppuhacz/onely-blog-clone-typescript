@@ -2,6 +2,20 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar.js";
 import { request } from 'graphql-request';
 import Footer from "./components/Footer.js";
+import './styles/app.scss'
+import Header from "./components/Header.js";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from 'react-router-dom'
+import Home from './components/Home.js'
+import Category from './components/Category.js'
+import Post from './components/Post.js'
+import AllPosts from './components/AllPosts'
+import Author from './components/Author'
+import AllAuthors from './components/AllAuthors'
+import PageNotFound from './components/PageNotFound'
 
 
 
@@ -119,12 +133,28 @@ const fetchData = async() => {
   fetchData();
 }, []);
 
-// console.log(data)
+
   return (
-    <div className="App">
-      <Navbar data={data}/>
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+
+        <Header />
+        <Navbar data={data}/>
+
+        <Routes>
+          <Route path='*' element={ <PageNotFound /> } />
+          <Route path='/' element={ <Home data={data} /> } />
+          <Route path='/category/:id/:page' element={ <Category data={data} /> } />
+          <Route path='/posts/:page' element={ <AllPosts data={data} /> } />
+          <Route path='/post/:id' element={ <Post data={data} /> } />
+          <Route path='/author/:id' element={ <Author data={data} /> } />
+          <Route path='/authors/' element = { <AllAuthors data={data} /> } />
+        </Routes>
+
+        <Footer />
+
+      </div>
+    </Router>
   );
 }
 
