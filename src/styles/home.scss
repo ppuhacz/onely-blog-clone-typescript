@@ -1,30 +1,35 @@
 @import "variables.scss";
 
-.recommended-post-container {
+a {
+  text-decoration: none;
+}
+.recommended-post-container , .knowledge-base-container {
   background-color: $darkbackground;
   padding: {
     bottom: 3rem;
   }
 }
-.recommended-post {
+.recommended-post, .knowledge-base-container {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  width: 80%;
+  width: 80vw;
   margin: {
     left: auto;
     right: auto;
   }
   color: #FFF;
 }
-.recommended-post-text span {
-  display: flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  padding: {
-    top: 0.8rem;
-  }
+.recommended-post-text, .recent-knowledge-posts {
+  span {
+    display: flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    padding: {
+      top: 0.8rem;
+    }
+}
 
 }
 .recommended-post-recommended {
@@ -34,7 +39,7 @@
 .recommended-post-title {
   padding: 0
 }
-.recommended-post-date {
+.recommended-post-date, .knowledge-post-info {
   color: $datetext;
 }
 .recommended-post-excerpt{
@@ -42,26 +47,68 @@
  font-size: 1.2rem;
  line-height: 2rem;
 }
-.recommended-post-read-more {
-  text-decoration: none;
-  color: $greentext
+.recommended-post-read-more, .knowledge-base-read-more {
+  color: $greentext;
 }
 .posts {
-  width: 80%;
+  width: 80vw;
   margin: {
-    top: 3rem;
+    top: 3.5rem;
     left: auto;
     right: auto;
-  }
-}
-.knowledge-base-display {
-  width: 80%;
-  margin: {
-    left: auto;
-    right: auto;
+    bottom: 7rem;
   }
 }
 main img {
   width: 80vw;
   margin: auto;
+}
+
+.recent-post {
+  line-height: 1.8rem;
+  margin: {
+    bottom: 4rem;
+  }
+  color: $text
+}
+.recent-post p {
+  color: $datetext
+}
+.recent-post, .recent-knowledge-posts {
+  span {
+    display: flex;
+    flex-wrap: wrap;
+    align-items:flex-start;
+    justify-content:space-between;
+  }
+}
+.recent-post, .recent-knowledge-posts {
+  img {
+    max-height: 21vh;
+  }
+}
+.knowledge-base-display {
+  position: relative;
+}
+.knowledge-base-display {
+  background-color: $darkbackground;
+}
+
+.knowledge-base-title {
+  line-height: 2rem;
+  padding-top: 0.5rem
+}
+.knowledge-post-title {
+  color: #FFF;
+  margin-bottom: 2rem;
+}
+
+.knowledge-base-display::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  border-bottom: 70px solid $darkbackground;
+  border-right: 70px solid transparent;
 }

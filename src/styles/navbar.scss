@@ -3,7 +3,6 @@
 nav {
   width: 100vw;
   background-color: $darkbackground;
-  color: white;
   margin: 0;
   padding: 3vh 10vw 3vh;
 }
@@ -23,4 +22,20 @@ li {
 }
 .categories {
   display: none;
+}
+.breadcrumbs {
+  color: $lightertext;
+  margin: {
+    bottom: 2rem
+  }
+}
+.categoryName span {
+  width: 80%;
+}
+.categoryName h1{
+  color: #ffffff;
+  margin: {
+    bottom: 2rem
+  }
+  font-size: 8vw;
 }

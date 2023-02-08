@@ -65,10 +65,10 @@ function Home (props) {
   allKnowledgeBasePosts.slice(0,3).forEach(post => {
     latestKnowledgeBasePosts.push(
       <NavLink to={'/posts/' + post.slug} key={post.slug}>
-        <div className="recent-post">
+        <div className="recent-knowledge-posts">
           <img src={post.coverImage.url} alt='Post cover' />
-          <span><p>{post.author.name},</p><p>{post.date}</p></span>
-          <span><h3>{post.title}</h3></span>
+          <span className="knowledge-post-info"><p>{post.author.name},</p><p>{post.date}</p></span>
+          <span className="knowledge-post-title"><h3>{post.title}</h3></span>
         </div>
       </NavLink>
     )
@@ -102,8 +102,15 @@ function Home (props) {
           {mostRecentPosts}
         </section>
         <section className="knowledge-base-display">
-          <h1>KNOWDLEGE BASE PLACEHOLDER</h1>
-          {latestKnowledgeBasePosts}
+          <div className="knowledge-base-container">
+            <span className="knowledge-base-title">
+            <h1>Knowledge Base</h1>
+            <NavLink to='/category/Knowledge-Base/1' className='knowledge-base-read-more'>
+              Read more →
+            </NavLink>
+            </span>
+            {latestKnowledgeBasePosts}
+          </div>
         </section>
         <section className="posts">
           {recentPosts}
