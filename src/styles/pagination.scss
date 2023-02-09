@@ -1,0 +1,68 @@
+@import "./variables.scss";
+
+.all-items-container {
+  width: 80vw;
+  margin: {
+    top: 3.5rem;
+    left: auto;
+    right: auto;
+    bottom: 3.5rem;
+  }
+  text-align: center;
+  img {
+    max-height: 21vh;
+  }
+  span {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    line-height: 1.8rem;
+  }
+}
+.recent-item {
+  margin: {
+    bottom: 4rem;
+  }
+  color: $text;
+  p {
+    color: $datetext
+  }
+}
+.pagination-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+.pagination-control {
+  position:relative;
+  background-color: $darkbackground;
+  padding: 0.3rem 0;
+  width: 8rem;
+  margin-bottom: 7rem;
+  a {
+    color: white;
+    font-size: 1rem
+  }
+}
+.pagination-control:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  border-bottom: 13px solid $darkbackground;
+  border-right: 13px solid transparent;
+}
+.pagination-control:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  border-top: 13px solid $darkbackground;
+  border-left: 13px solid transparent;
+}

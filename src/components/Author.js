@@ -1,4 +1,5 @@
 import { NavLink, useParams } from "react-router-dom";
+import PageTop from "./PageTop";
 
 function Author(props) {
   const params = useParams();
@@ -87,4 +88,4 @@ function Author(props) {
 }
 }
 
-export default Author
+export default PageTop(Author)

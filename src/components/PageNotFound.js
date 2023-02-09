@@ -1,4 +1,6 @@
-export default function PageNotFound() {
+import PageTop from "./PageTop"
+
+function PageNotFound() {
   return (
     <div className="page-not-found">
       <h2>404 Page not found</h2>
@@ -8,3 +10,4 @@ export default function PageNotFound() {
     </div>
   )
 }
+export default PageTop(PageNotFound)

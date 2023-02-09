@@ -21,6 +21,7 @@ import PageNotFound from './components/PageNotFound'
 
 function App() {
 const [data, setData] = useState(null);
+const [loading, setLoading] = useState(true)
 
 useEffect(() => {
 const fetchData = async() => {
@@ -129,32 +130,40 @@ const fetchData = async() => {
       `
       )
       setData(response)
+      setLoading(false)
     }
   fetchData();
 }, []);
 
 
   return (
-    <Router>
-      <div className="App">
+    <>
+    {loading ? (
+      <p>Loading...</p>
+    ) : (
+      <Router>
+        <div className="App">
 
-        <Header />
-        <Navbar data={data}/>
+          <Header />
+          <Navbar data={data}/>
 
-        <Routes>
-          <Route path='*' element={ <PageNotFound /> } />
-          <Route path='/' element={ <Home data={data} /> } />
-          <Route path='/category/:id/:page' element={ <Category data={data} /> } />
-          <Route path='/posts/:page' element={ <AllPosts data={data} /> } />
-          <Route path='/post/:id' element={ <Post data={data} /> } />
-          <Route path='/author/:id' element={ <Author data={data} /> } />
-          <Route path='/authors/' element = { <AllAuthors data={data} /> } />
-        </Routes>
+          <Routes>
+            <Route path='*' element={ <PageNotFound /> } />
+            <Route path='/' element={ <Home data={data} /> } />
+            <Route path='/category/:id/:page' element={ <Category data={data} /> } />
+            <Route path='/posts/:page' element={ <AllPosts data={data} /> } />
+            <Route path='/post/:id' element={ <Post data={data} /> } />
+            <Route path='/author/:id' element={ <Author data={data} /> } />
+            <Route path='/authors/' element = { <AllAuthors data={data} /> } />
+          </Routes>
 
-        <Footer />
+          <Footer />
 
-      </div>
-    </Router>
+        </div>
+      </Router>
+    )}
+    </>
+
   );
 }
 

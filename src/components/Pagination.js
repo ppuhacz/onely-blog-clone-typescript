@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { NavLink, useParams, Navigate } from "react-router-dom";
+import "../styles/pagination.scss"
 
 function Pagination(props) {
 
@@ -30,10 +31,19 @@ function Pagination(props) {
     const currentPage = pages[currentPageNumber];
     const itemsDisplayed = []
 
-    // Making a redirect funtion so you can't access the /pageRoute/0 url
-    if (currentPageNumber === 0) {
+    // Making a redirect functions so you can't access the /page/:id that doesn't exist
+    // If you go lower id than "1" you will be redirected to /page/1
+    // If you go higher id than the higest id available you will be redirected to the last page
+
+    if (currentPageNumber < 1) {
       return <Navigate to={`/${pageRoute}/1`} />
+    } else if (currentPageNumber > pages.length-1) {
+      return <Navigate to={`/${pageRoute}/${pages.length-1}`} />
+    } else {
+    <Navigate to='/404/' />
     }
+
+    console.log(pages)
 
     currentPage.forEach((item, index) => {
       itemsDisplayed.push (
@@ -50,16 +60,20 @@ function Pagination(props) {
       <main>
         <div className="all-items-container">
           {itemsDisplayed}
-          <span>
-            {currentPageNumber === 1 ? '' : <NavLink to={`/${pageRoute}/${currentPageNumber - 1}`}>
-                ← Previous
-              </NavLink>
-            }
-            {currentPageNumber === pages.length - 1 ? '' : <NavLink to={`/${pageRoute}/${currentPageNumber + 1}`}>
-                Next →
-              </NavLink>
-            }
-          </span>
+        </div>
+        <div className="pagination-container">
+              {currentPageNumber === 1 ? '' : <span className="pagination-control">
+                <NavLink to={`/${pageRoute}/${currentPageNumber - 1}`}>
+                  ← Previous
+                </NavLink>
+                </span>
+              }
+              {currentPageNumber === pages.length - 1 ? '' : <span className="pagination-control">
+                <NavLink to={`/${pageRoute}/${currentPageNumber + 1}`}>
+                  Next →
+                </NavLink>
+                </span>
+              }
         </div>
       </main>
     )

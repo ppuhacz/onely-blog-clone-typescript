@@ -1,0 +1,17 @@
+@import "variables.scss";
+footer {
+  background-color: $darkbackground;
+}
+
+.footer-container {
+  width: 80vw;
+  margin: auto;
+  padding: 3rem 0
+}
+.footer-logo {
+  margin-bottom: 2rem
+}
+.footer-text {
+  color: $lighttext;
+  margin-bottom: 2rem;
+}

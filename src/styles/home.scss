@@ -58,6 +58,7 @@ a {
     right: auto;
     bottom: 7rem;
   }
+  text-align: center;
 }
 main img {
   width: 80vw;
@@ -69,10 +70,10 @@ main img {
   margin: {
     bottom: 4rem;
   }
-  color: $text
-}
-.recent-post p {
-  color: $datetext
+  color: $text;
+  p {
+    color: $datetext
+  }
 }
 .recent-post, .recent-knowledge-posts {
   span {
@@ -96,19 +97,61 @@ main img {
 
 .knowledge-base-title {
   line-height: 2rem;
-  padding-top: 0.5rem
+  padding-top: 0.5rem;
+  margin-bottom: 2rem
+}
+.knowledge-base-read-more {
+  margin-bottom: 2rem;
 }
 .knowledge-post-title {
   color: #FFF;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
-.knowledge-base-display::before{
+.knowledge-base-display:before{
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 100%;
   border-bottom: 70px solid $darkbackground;
+  border-right: 70px solid white;
+}
+.knowledge-base-display:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 70px solid white;
   border-right: 70px solid transparent;
 }
+.show-more-posts {
+  position:relative;
+  display: inline-block;
+  background-color: $darkbackground;
+  padding: 0.3rem 3rem;
+  a {
+    color: white;
+  }
+}
+.show-more-posts:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  border-bottom: 15px solid $darkbackground;
+  border-right: 15px solid transparent;
+}
+.show-more-posts:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  border-top: 15px solid $darkbackground;
+  border-left: 15px solid transparent;
+}
+

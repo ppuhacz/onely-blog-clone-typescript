@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import PageTop from './PageTop.js';
 import "../styles/home.scss";
 
 function Home (props) {
@@ -114,9 +115,12 @@ function Home (props) {
         </section>
         <section className="posts">
           {recentPosts}
-          <NavLink to='/posts/1'>
-            All posts...
-          </NavLink>
+          <span className="show-more-posts">
+            <NavLink to='/posts/1'>
+              Show more posts
+            </NavLink>
+          </span>
+
         </section>
       </div>
     </main>
@@ -125,4 +129,4 @@ function Home (props) {
 
 }
 
-export default Home
+export default PageTop(Home)

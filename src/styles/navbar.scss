@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 nav {
-  width: 100vw;
+  width: 80vw;
   background-color: $darkbackground;
   margin: 0;
   padding: 3vh 10vw 3vh;
@@ -29,13 +29,15 @@ li {
     bottom: 2rem
   }
 }
-.categoryName span {
-  width: 80%;
-}
-.categoryName h1{
-  color: #ffffff;
-  margin: {
-    bottom: 2rem
+.categoryName {
+  span {
+    width: 80%;
   }
-  font-size: 8vw;
+  h1 {
+    color: #fff;
+    margin: {
+      bottom: 2rem
+    }
+    font-size: 8vw;
+  }
 }

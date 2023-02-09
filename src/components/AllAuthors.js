@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
+import PageTop from "./PageTop";
 
-export default function AllAuthors(props) {
+function AllAuthors(props) {
 
   if(props) {
     let allAuthors = props.data.authors
@@ -34,3 +35,5 @@ export default function AllAuthors(props) {
     )
   }
 }
+
+export default PageTop(AllAuthors)

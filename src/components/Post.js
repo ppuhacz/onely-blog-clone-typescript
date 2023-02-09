@@ -1,5 +1,6 @@
 import { NavLink, useParams } from "react-router-dom"
 import { RichText } from "@graphcms/rich-text-react-renderer";
+import PageTop from "./PageTop";
 
 
 function Post(props) {
@@ -46,4 +47,4 @@ function Post(props) {
   }
 }
 
-export default Post
+export default PageTop(Post)

@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import Pagination from './Pagination';
 
+
 function Category(props) {
   const params = useParams();
   const id = params.id;
