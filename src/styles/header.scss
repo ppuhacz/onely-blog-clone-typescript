@@ -3,16 +3,15 @@
 header {
   position: relative;
   background-color: $darkbackground;
-  padding: 2.5vh 10vw;
+  padding: 2vh 10vw;
   transition: 0.3 ease-in-out;
   width:80vw;
   text-align: start;
+  z-index: 999;
 }
 .header-sticky {
   position: sticky;
   top: 0;
   left: 0;
   text-align: center;
-  transition: 0.3 ease-in-out;
-  padding: 2vh 10vw;
 }

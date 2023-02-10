@@ -1,0 +1,72 @@
+@import "variables.scss";
+
+.author-header {
+  background-color: $darkbackground;
+  padding-bottom: 4rem;
+  .author-header-container {
+    width: 80%;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+    h1 {
+      padding-top: 1.3rem;
+      color: #fff;
+      font-size: 2.8rem;
+    }
+    .author-title {
+      color: $lighttext;
+      font-size: 1.15rem;
+      margin-top: 0.3rem;
+    }
+    .author-description {
+      margin: 1.5rem 0;
+      color: $lighttext;
+      font-size: 1.5rem;
+      line-height: 2.3rem;
+    }
+    img {
+      display: none;
+    }
+  }
+}
+
+.author-questions-container {
+  width: 80%;
+  margin: auto;
+  .question-and-answer {
+    margin: 3rem 0;
+    .question {
+      font-size: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+    .answer {
+      position: relative;
+      padding: 2rem;
+      background-color: $lightbackground;
+      margin-bottom: 1.8rem;
+      line-height: 2rem;
+    }
+    .answer:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 90px solid white;
+        border-left: 90px solid transparent;
+    }
+  }
+}
+
+.authors-posts {
+  width: 80%;
+  margin: auto;
+  .author-recent-posts {
+    margin: {
+      top: 6rem;
+      bottom: 2rem;
+    }
+  }
+}

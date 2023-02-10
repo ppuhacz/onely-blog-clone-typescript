@@ -5,7 +5,7 @@ import '../styles/navbar.scss'
 function Navbar(props) {
   const location = useLocation();
   const path = location.pathname.split("/").slice(1);
-  console.log(path)
+
   if (props.data) {
     let categories = props.data.categories
     let categoriesList = [];
@@ -31,13 +31,6 @@ function Navbar(props) {
           </span>
         )
       }
-      // else if(path[0] !== 'category' && path[0] !== 'posts' & path[0] !== 'authors') {
-      //   return (
-      //     <span className='categoryName'>
-      //       <h1>{path[0]}</h1>
-      //     </span>
-      //     )
-      // }
     }
 
   return(

@@ -12,7 +12,7 @@ const Breadcrumbs = () => {
       breadcrumbs.push(<span key={-index - 1}> / </span>);
     }
   });
-  console.log(location)
+
   if(location.pathname !== '/') {
     return (
       <div className="breadcrumbs">

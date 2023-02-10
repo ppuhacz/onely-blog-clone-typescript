@@ -1,5 +1,6 @@
 import { NavLink, useParams } from "react-router-dom";
 import PageTop from "./PageTop";
+import "../styles/author.scss";
 
 function Author(props) {
   const params = useParams();
@@ -9,6 +10,12 @@ function Author(props) {
     color: '#3dd44f',
     fontSize: '2rem',
     marginRight: '1rem'
+  }
+
+  const quotationMarkStyles = {
+    color: '#3dd44f',
+    fontSize: '3.6rem',
+    marginBottom: '1rem'
   }
 
     if(props.data) {
@@ -40,13 +47,18 @@ function Author(props) {
           <main>
             <div className="author-page">
               <div className="author-header">
-                <h1>{author.name}</h1>
-                <p>{author.title}</p>
-                <p>{author.description}</p>
-                {author.socialMedia.twitter ? <a href={author.socialMedia.twitter}><i className="fa fa-twitter" style={socialMediaStyles}></i></a> : '' }
-                {author.socialMedia.instagram ? <a href={author.socialMedia.instagram}><i className="fa fa-instagram" style={socialMediaStyles}></i></a> : '' }
-                {author.socialMedia.linkedIn ? <a href={author.socialMedia.linkedIn}><i className="fa fa-linkedin" style={socialMediaStyles}></i></a> : '' }
-                <img src={author.picture.url} alt='author' />
+                <div className="author-header-container">
+                  <h1>{author.name}</h1>
+                  <p className="author-title">{author.title}</p>
+                  <p className="author-description">{author.description}</p>
+                  <span className="social-media">
+                  {author.socialMedia.twitter ? <a href={author.socialMedia.twitter}><i className="fa fa-twitter" style={socialMediaStyles}></i></a> : '' }
+                  {author.socialMedia.instagram ? <a href={author.socialMedia.instagram}><i className="fa fa-instagram" style={socialMediaStyles}></i></a> : '' }
+                  {author.socialMedia.linkedIn ? <a href={author.socialMedia.linkedIn}><i className="fa fa-linkedin" style={socialMediaStyles}></i></a> : '' }
+                  </span>
+
+                  <img src={author.picture.url} alt='author' />
+                </div>
               </div>
               <div className="author-questions-container">
                 <div className="question-and-answer">
@@ -54,31 +66,47 @@ function Author(props) {
                     <h4>{author.question1.question}</h4>
                   </div>
                   <div className="answer">
+                    <i class="material-symbols-outlined" style={quotationMarkStyles}>
+                      format_quote
+                    </i>
                     <p>{author.question1.answer}</p>
                   </div>
                   <div className="question">
                     <h4>{author.question2.question}</h4>
                   </div>
                   <div className="answer">
+                  <i class="material-symbols-outlined" style={quotationMarkStyles}>
+                    format_quote
+                  </i>
                     <p>{author.question2.answer}</p>
                   </div>
                   <div className="question">
                     <h4>{author.question3.question}</h4>
                   </div>
                   <div className="answer">
+                    <i class="material-symbols-outlined" style={quotationMarkStyles}>
+                      format_quote
+                    </i>
                     <p>{author.question3.answer}</p>
                   </div>
                   <div className="question">
                     <h4>{author.question4.question}</h4>
                   </div>
                   <div className="answer">
+                    <i class="material-symbols-outlined" style={quotationMarkStyles}>
+                      format_quote
+                    </i>
                     <p>{author.question4.answer}</p>
                   </div>
                 </div>
               </div>
-              <div className="authors-posts">
+              {authorsPosts.length ? (
+                <div className="authors-posts">
+                <h3 className="author-recent-posts">All posts from this author:</h3>
                 {authorsPosts}
-              </div>
+                </div>
+              ) : ''}
+
             </div>
           </main>
         )

@@ -32,18 +32,17 @@ function Pagination(props) {
     const itemsDisplayed = []
 
     // Making a redirect functions so you can't access the /page/:id that doesn't exist
-    // If you go lower id than "1" you will be redirected to /page/1
-    // If you go higher id than the higest id available you will be redirected to the last page
+    // If you go lower :id than "1" you will be redirected to /page/1
+    // If you go higher :id than the higest id available you will be redirected to the last page
+    // If you type in :id that is NaN it will redirect you to /404 page
 
     if (currentPageNumber < 1) {
       return <Navigate to={`/${pageRoute}/1`} />
     } else if (currentPageNumber > pages.length-1) {
       return <Navigate to={`/${pageRoute}/${pages.length-1}`} />
-    } else {
-    <Navigate to='/404/' />
+    } else  if (isNaN(parseInt(currentPageNumber, 10))){
+      return <Navigate to='/404' />
     }
-
-    console.log(pages)
 
     currentPage.forEach((item, index) => {
       itemsDisplayed.push (
