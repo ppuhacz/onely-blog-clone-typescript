@@ -4,18 +4,18 @@ nav {
   width: 80vw;
   background-color: $darkbackground;
   margin: 0;
-  padding: 3vh 10vw 3vh;
-}
-
-li {
-  list-style-type: none;
-  padding: 0;
-  line-height: 3.6vh;
-  font: {
-    size: 1.15rem;
-    weight: bold;
+  padding: 3vh 10vw;
+  li {
+    list-style-type: none;
+    padding: 0;
+    line-height: 3.6vh;
+    font: {
+      size: 1.15rem;
+      weight: bold;
+    }
   }
 }
+
 .nav-link {
   color: $lighttext;
   text-decoration: none;
@@ -26,7 +26,7 @@ li {
 .breadcrumbs {
   color: $lightertext;
   margin: {
-    bottom: 2rem
+    bottom: 5vh;
   }
 }
 .categoryName {
@@ -36,8 +36,8 @@ li {
   h1 {
     color: #fff;
     margin: {
-      bottom: 2rem
+      bottom: 5vh;
     }
-    font-size: 8vw;
+    font-size: 1.8rem;
   }
 }

@@ -21,9 +21,9 @@ function Home (props) {
           </div>
           <div className="recommended-post-text">
             <span><p className="recommended-post-recommended">RECOMMENDED POST</p> <p className="recommended-post-date">{post.date}</p></span>
-            <br/>
+            <br />
             <span><h2 className="recommended-post-title">{post.title}</h2></span>
-            <br/>
+            <br />
             <span><p className="recommended-post-excerpt">{post.excerpt}</p></span>
             <br />
             <NavLink to={'/post/' + post.slug} className="recommended-post-read-more">
@@ -110,18 +110,22 @@ function Home (props) {
               Read more →
             </NavLink>
             </span>
+            <div className="knowledge-grid-container">
             {latestKnowledgeBasePosts}
+            </div>
+
           </div>
         </section>
         <section className="posts">
           {recentPosts}
+        </section>
+        <div className="show-more-posts-container">
           <span className="show-more-posts">
             <NavLink to='/posts/1'>
               Show more posts
             </NavLink>
           </span>
-
-        </section>
+        </div>
       </div>
     </main>
   )

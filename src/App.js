@@ -109,6 +109,9 @@ const fetchData = async() => {
               }
             }
             title
+            picture {
+              url
+            }
           }
           category {
             categoryName

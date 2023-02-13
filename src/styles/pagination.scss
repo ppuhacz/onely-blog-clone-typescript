@@ -3,10 +3,10 @@
 .all-items-container {
   width: 80vw;
   margin: {
-    top: 3.5rem;
+    top: 7.5vh;
     left: auto;
     right: auto;
-    bottom: 3.5rem;
+    bottom: 9vh;
   }
   text-align: center;
   img {
@@ -22,7 +22,7 @@
 }
 .recent-item {
   margin: {
-    bottom: 4rem;
+    bottom: 8.5vh;
   }
   color: $text;
   p {
@@ -33,16 +33,16 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
-  width: 80%;
+  width: 80vw;
   margin: auto;
   text-align: center;
 }
 .pagination-control {
   position:relative;
   background-color: $darkbackground;
-  padding: 0.3rem 0;
-  width: 8rem;
-  margin-bottom: 7rem;
+  padding: 0.7vh 0;
+  width: 36vw;
+  margin-bottom: 15vh;
   a {
     color: white;
     font-size: 1rem

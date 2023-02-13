@@ -1,0 +1,116 @@
+@import 'variables.scss';
+
+.header-container {
+  background-color: $darkbackground;
+  position: relative;
+  padding: {
+    bottom: 13vh;
+  }
+  .post-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 80vw;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+    color: #FFF;
+  }
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 4vh;
+  }
+  p {
+    color: $lighttext;
+    margin-bottom: 4vh;
+  }
+  img {
+    z-index: 2;
+    position: absolute;
+    bottom: -10vh;
+  }
+}
+
+.post-container {
+  width: 80vw;
+  margin: {
+    top: 20vh;
+    left: auto;
+    right: auto;
+  }
+  .post-content {
+    line-height: 2rem;
+    margin-bottom: 10vh;
+    p {
+      color: $lightertext;
+      margin-bottom: 4vh;
+      font-size: 1.1rem;
+    }
+    h2 {
+      margin-bottom: 4vh;
+      font-size: 2rem;
+    }
+    h3 {
+      margin-bottom: 4vh;
+      font-size: 1.5rem;
+    }
+    a {
+      color: $lightertext;
+      text-decoration: underline 2px $greentext;
+      text-decoration-skip-ink: none;
+    }
+    img {
+      max-height: 21vh;
+    }
+    b {
+      color: $text;
+    }
+    ol {
+      list-style: decimal;
+      li::marker {
+        color: $greentext
+      }
+      li {
+        color: $lightertext;
+      }
+    }
+  }
+  .post-author-info {
+    position: relative;
+    background-color: $darkbackground;
+    color: white;
+    margin-bottom: 11vh;
+    img {
+      width: 25%;
+    }
+    span {
+      display: flex;
+      p::before {
+        content: "➜";
+        margin: 0 8vw;
+        color: $greentext
+      }
+      p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 3vw;
+      }
+      a {
+        color: white;
+      }
+    }
+  }
+  .post-author-info::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 25px solid white;
+      border-left: 25px solid transparent;
+  }
+}

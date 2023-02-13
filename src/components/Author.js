@@ -66,7 +66,7 @@ function Author(props) {
                     <h4>{author.question1.question}</h4>
                   </div>
                   <div className="answer">
-                    <i class="material-symbols-outlined" style={quotationMarkStyles}>
+                    <i className="material-symbols-outlined" style={quotationMarkStyles}>
                       format_quote
                     </i>
                     <p>{author.question1.answer}</p>
@@ -75,7 +75,7 @@ function Author(props) {
                     <h4>{author.question2.question}</h4>
                   </div>
                   <div className="answer">
-                  <i class="material-symbols-outlined" style={quotationMarkStyles}>
+                  <i className="material-symbols-outlined" style={quotationMarkStyles}>
                     format_quote
                   </i>
                     <p>{author.question2.answer}</p>
@@ -84,7 +84,7 @@ function Author(props) {
                     <h4>{author.question3.question}</h4>
                   </div>
                   <div className="answer">
-                    <i class="material-symbols-outlined" style={quotationMarkStyles}>
+                    <i className="material-symbols-outlined" style={quotationMarkStyles}>
                       format_quote
                     </i>
                     <p>{author.question3.answer}</p>
@@ -93,7 +93,7 @@ function Author(props) {
                     <h4>{author.question4.question}</h4>
                   </div>
                   <div className="answer">
-                    <i class="material-symbols-outlined" style={quotationMarkStyles}>
+                    <i className="material-symbols-outlined" style={quotationMarkStyles}>
                       format_quote
                     </i>
                     <p>{author.question4.answer}</p>

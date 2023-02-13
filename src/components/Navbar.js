@@ -33,6 +33,11 @@ function Navbar(props) {
       }
     }
 
+    // Navbar will not be display while on a post page
+    if (location.pathname.includes(`/post/`)) {
+      return null
+    }
+
   return(
       <nav>
         <div>

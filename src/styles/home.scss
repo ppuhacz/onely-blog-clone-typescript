@@ -6,7 +6,7 @@ a {
 .recommended-post-container , .knowledge-base-container {
   background-color: $darkbackground;
   padding: {
-    bottom: 3rem;
+    bottom: 7vh;
   }
 }
 .recommended-post, .knowledge-base-container {
@@ -27,7 +27,7 @@ a {
     align-items:flex-start;
     justify-content:space-between;
     padding: {
-      top: 0.8rem;
+      top: 1.8vh;
     }
 }
 
@@ -53,10 +53,9 @@ a {
 .posts {
   width: 80vw;
   margin: {
-    top: 3.5rem;
+    top: 8vh;
     left: auto;
     right: auto;
-    bottom: 7rem;
   }
   text-align: center;
 }
@@ -66,13 +65,18 @@ main img {
 }
 
 .recent-post {
+  max-width: 370px;
   line-height: 1.8rem;
   margin: {
-    bottom: 4rem;
+    bottom: 9vh;
   }
   color: $text;
   p {
     color: $datetext
+  }
+  img {
+    max-height: 175px;
+    max-width: 370px;
   }
 }
 .recent-post, .recent-knowledge-posts {
@@ -83,7 +87,7 @@ main img {
     justify-content:space-between;
   }
 }
-.recent-post, .recent-knowledge-posts {
+.recent-knowledge-posts {
   img {
     max-height: 21vh;
   }
@@ -97,15 +101,12 @@ main img {
 
 .knowledge-base-title {
   line-height: 2rem;
-  padding-top: 0.5rem;
-  margin-bottom: 2rem
-}
-.knowledge-base-read-more {
-  margin-bottom: 2rem;
+  padding-top: 1vh;
+  margin-bottom: 5vh;
 }
 .knowledge-post-title {
   color: #FFF;
-  margin-bottom: 5rem;
+  margin-bottom: 11vh;
 }
 
 .knowledge-base-display:before{
@@ -127,11 +128,18 @@ main img {
   border-bottom: 70px solid white;
   border-right: 70px solid transparent;
 }
+.show-more-posts-container {
+  width: 80vw;
+  margin: auto;
+  text-align: center;
+}
 .show-more-posts {
   position:relative;
   display: inline-block;
   background-color: $darkbackground;
-  padding: 0.3rem 3rem;
+  width: 213px;
+  padding: 0.8vh 0;
+  margin-bottom:15vh;
   a {
     color: white;
   }
@@ -155,3 +163,23 @@ main img {
   border-left: 15px solid transparent;
 }
 
+@media (min-width: 1058px) {
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5vw;
+    .recent-post{
+      max-width: 100%;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .knowledge-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5vw;
+    // .recent-knowledge-posts
+  }
+}
