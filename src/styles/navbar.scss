@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 nav {
-  width: 80vw;
+  width: 100vw;
   background-color: $darkbackground;
   margin: 0;
   padding: 3vh 10vw;
@@ -16,11 +16,19 @@ nav {
   }
 }
 
-.nav-link {
+.nav-link, li {
   color: $lighttext;
   text-decoration: none;
+  transition: ease-in-out 0.2s;
+  &:hover {
+    color: $greentext;
+  }
+  margin-bottom: 15px;
 }
-.categories {
+li {
+  margin-right: 30px;
+}
+.categories-span {
   display: none;
 }
 .breadcrumbs {
@@ -29,7 +37,7 @@ nav {
     bottom: 5vh;
   }
 }
-.categoryName {
+.category-name {
   span {
     width: 80%;
   }
@@ -40,4 +48,58 @@ nav {
     }
     font-size: 1.8rem;
   }
+}
+
+@media (min-width: 800px) {
+  ul {
+    li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+  }
+}
+@media (min-width: 1140px) {
+  .categories {
+    color:$lighttext;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+  }
+  .categories-span {
+    display: flex;
+    align-items: center;
+
+    .expand-icon{
+      color:$greentext;
+      font-size: 1rem;
+      margin-left: 8px;
+    }
+  }
+    ul {
+      li {
+        display: inline-block;
+        margin-right: 60px;
+        &:hover {
+          ul.categories-list {
+            display: block;
+          }
+        }
+        ul.categories-list {
+          display: none;
+          position: absolute;
+          z-index: 2;
+          padding:20px 80px 20px 0;
+          background-color: $navdarkbackground;
+          border-top: 2px solid $greentext;
+          // -webkit-clip-path: polygon(0 0,0 80%,20% 100%,100% 100%,100% 0);
+          // clip-path: polygon(0 0,0 80%,20% 100%,100% 100%,100% 0);
+          border-top: 2px solid $greentext;
+          clip-path: polygon(0 0,100% 0,100% calc(100% - 60.00px),calc(100% - 60.00px) 100%,0 100%);
+          li {
+            display: block;
+            margin-left: 40px;
+          }
+        }
+      }
+    }
 }

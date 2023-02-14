@@ -25,7 +25,7 @@ export default function Header() {
 
 
   return(
-      <header className={`header ${sticky ? "header-sticky" : ''}`}>
+      <header className={`header-default ${sticky ? "header-sticky" : ''}`}>
         <div>
           <NavLink to='/' className='nav-link'>
             <img src={onelyLogo} alt='Onely'/>

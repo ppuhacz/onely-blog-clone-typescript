@@ -57,7 +57,7 @@ a {
     left: auto;
     right: auto;
   }
-  text-align: center;
+  // text-align: center;
 }
 main img {
   width: 80vw;
@@ -65,7 +65,7 @@ main img {
 }
 
 .recent-post {
-  max-width: 370px;
+  max-width: 410px;
   line-height: 1.8rem;
   margin: {
     bottom: 9vh;
@@ -75,8 +75,8 @@ main img {
     color: $datetext
   }
   img {
-    max-height: 175px;
-    max-width: 370px;
+    max-width: 410px;
+    max-height: 230px;
   }
 }
 .recent-post, .recent-knowledge-posts {
@@ -89,20 +89,22 @@ main img {
 }
 .recent-knowledge-posts {
   img {
-    max-height: 21vh;
+    max-height: 25vh;
   }
 }
 .knowledge-base-display {
   position: relative;
-}
-.knowledge-base-display {
   background-color: $darkbackground;
+  margin: 20vh 0 15vh
 }
 
 .knowledge-base-title {
   line-height: 2rem;
   padding-top: 1vh;
   margin-bottom: 5vh;
+  h2 {
+    font-size: 2rem;
+  }
 }
 .knowledge-post-title {
   color: #FFF;
@@ -163,23 +165,51 @@ main img {
   border-left: 15px solid transparent;
 }
 
-@media (min-width: 1058px) {
+@media (min-width: 1023px) {
   .posts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 5vw;
     .recent-post{
       max-width: 100%;
+      margin-right: 5vh;
       img {
         max-width: 100%;
         height: auto;
       }
     }
   }
-  .knowledge-grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 5vw;
-    // .recent-knowledge-posts
+
+  .knowledge-base-display {
+    margin: 8vh 0;
+    .knowledge-base-title {
+      width:100%;
+      display: flex;
+      justify-content: space-between;
+      h2 {
+        font-size: 2.2rem;
+      }
+    }
+    .knowledge-grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+      .recent-knowledge-posts {
+        margin-right: 5vh;
+        max-width: 100%;
+        img {
+          max-width: 100%;
+          width: 420px;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .show-more-posts-container {
+    margin-top: 12vh;
   }
 }
+
+
+
+// przy 1400 px zaczyna się robić lista

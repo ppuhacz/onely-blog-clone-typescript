@@ -105,15 +105,14 @@ function Home (props) {
         <section className="knowledge-base-display">
           <div className="knowledge-base-container">
             <span className="knowledge-base-title">
-            <h1>Knowledge Base</h1>
+            <h2>Knowledge Base</h2>
             <NavLink to='/category/Knowledge-Base/1' className='knowledge-base-read-more'>
-              Read more →
+              <strong>Read more →</strong>
             </NavLink>
             </span>
             <div className="knowledge-grid-container">
             {latestKnowledgeBasePosts}
             </div>
-
           </div>
         </section>
         <section className="posts">

@@ -26,7 +26,7 @@ function Navbar(props) {
     const titleDisplay = () => {
       if(path[0] === 'category') {
         return (
-          <span className='categoryName'>
+          <span className='category-name'>
             <h1>{path[1].replaceAll('-', ' ')}</h1>
           </span>
         )
@@ -45,7 +45,7 @@ function Navbar(props) {
           {titleDisplay()}
             <ul>
               <li key='categories'>
-                  <p className='categories'>Categories</p>
+                  <span className='categories-span'>Categories <i class="material-symbols-outlined expand-icon">expand_more</i></span>
                   <ul className='categories-list'>
                     <li key='allPosts'>
                       <NavLink to='/posts/1' className='nav-link'>

@@ -1,11 +1,11 @@
 @import "variables.scss";
 
-header {
+.header-default {
   position: relative;
   background-color: $darkbackground;
   padding: 2vh 10vw;
   transition: 0.3 ease-in-out;
-  width:80vw;
+  width:100vw;
   text-align: start;
   z-index: 999;
 }
