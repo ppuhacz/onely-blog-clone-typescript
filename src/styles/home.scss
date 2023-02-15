@@ -27,7 +27,7 @@ a {
     align-items:flex-start;
     justify-content:space-between;
     padding: {
-      top: 1.8vh;
+      bottom: 1.8vh;
     }
 }
 
@@ -37,7 +37,8 @@ a {
   padding: 0
 }
 .recommended-post-title {
-  padding: 0
+  padding: 0;
+  color: #fff;
 }
 .recommended-post-date, .knowledge-post-info {
   color: $datetext;
@@ -50,6 +51,13 @@ a {
 .recommended-post-read-more, .knowledge-base-read-more {
   color: $greentext;
 }
+.recommended-post-read-more:after, .knowledge-base-read-more:after {
+  content:'➜';
+  font-size: 0.8rem;
+  position: relative;
+  left: 13px;
+  transition: 0.25s ease-in;
+}
 .posts {
   width: 80vw;
   margin: {
@@ -57,7 +65,6 @@ a {
     left: auto;
     right: auto;
   }
-  // text-align: center;
 }
 main img {
   width: 80vw;
@@ -95,7 +102,11 @@ main img {
 .knowledge-base-display {
   position: relative;
   background-color: $darkbackground;
-  margin: 20vh 0 15vh
+  margin: 20vh 0 15vh;
+  max-width: 1640px;
+}
+.knowledge-base-container {
+  max-width: 1312px;
 }
 
 .knowledge-base-title {
@@ -165,22 +176,24 @@ main img {
   border-left: 15px solid transparent;
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 1024px) {
   .posts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     .recent-post{
-      max-width: 100%;
       margin-right: 5vh;
+      max-width: 420px;
       img {
         max-width: 100%;
+        width: 420px;
         height: auto;
       }
     }
   }
 
   .knowledge-base-display {
-    margin: 8vh 0;
+    max-width: 1640px;
+    margin: 8vh auto;
     .knowledge-base-title {
       width:100%;
       display: flex;
@@ -195,21 +208,77 @@ main img {
       width: 100%;
       .recent-knowledge-posts {
         margin-right: 5vh;
-        max-width: 100%;
+        max-width: 420px;
+        &:hover{
+          .knowledge-post-title {
+            color: $greentext
+          }
+        }
         img {
           max-width: 100%;
           width: 420px;
           height: auto;
+        }
+        .knowledge-base-read-more {
+
+
+          // TUTAJ ZROBIĆ ŻEBY SIĘ PRZESUWAŁO NA HOVER, TEKST NIE STRZAŁKA
+
+
         }
       }
     }
   }
 
   .show-more-posts-container {
-    margin-top: 12vh;
+    margin-top: 5vh;
+  }
+
+  .recommended-post {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &:hover{
+      .recommended-post-title {
+        color: $greentext
+      }
+    }
+    .recommended-post-title {
+      font-size: 2.5rem;
+    }
+    .recommended-post-cover {
+      width: 55%;
+      max-width: 740px;
+      margin-right: 55px;
+      img {
+        width: 100%;
+        max-width: 740px;
+      }
+    }
+    .recommended-post-text {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+    }
+    .recommended-post-read-more {
+      display: flex;
+      &:hover{
+        &:after{
+          left: 30px;
+        }
+      }
+    }
   }
 }
 
-
-
-// przy 1400 px zaczyna się robić lista
+@media (min-width: 1600px) {
+  .recommended-post-container {
+    width: 95vw;
+    position: relative;
+    padding-bottom: 100px;
+    clip-path: polygon(0 0,100% 0,100% calc(100% - 120.00px),calc(100% - 120.00px) 100%,0 100%);
+    .recommended-post {
+      margin-left: 10vw;
+    }
+  }
+}

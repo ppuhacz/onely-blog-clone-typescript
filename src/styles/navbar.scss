@@ -91,9 +91,6 @@ li {
           padding:20px 80px 20px 0;
           background-color: $navdarkbackground;
           border-top: 2px solid $greentext;
-          // -webkit-clip-path: polygon(0 0,0 80%,20% 100%,100% 100%,100% 0);
-          // clip-path: polygon(0 0,0 80%,20% 100%,100% 100%,100% 0);
-          border-top: 2px solid $greentext;
           clip-path: polygon(0 0,100% 0,100% calc(100% - 60.00px),calc(100% - 60.00px) 100%,0 100%);
           li {
             display: block;
@@ -102,4 +99,9 @@ li {
         }
       }
     }
+}
+@media (min-width: 1600px) {
+  nav {
+    width: 95vw;
+  }
 }

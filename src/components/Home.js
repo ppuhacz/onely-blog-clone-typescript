@@ -22,12 +22,16 @@ function Home (props) {
           <div className="recommended-post-text">
             <span><p className="recommended-post-recommended">RECOMMENDED POST</p> <p className="recommended-post-date">{post.date}</p></span>
             <br />
-            <span><h2 className="recommended-post-title">{post.title}</h2></span>
+            <span>
+              <NavLink to={'/post/' + post.slug} >
+                <h2 className="recommended-post-title">{post.title}</h2>
+              </NavLink>
+            </span>
             <br />
             <span><p className="recommended-post-excerpt">{post.excerpt}</p></span>
             <br />
             <NavLink to={'/post/' + post.slug} className="recommended-post-read-more">
-              <span><p >Read more →</p></span>
+              <span><p className="recommended-post-read-more-text">Read more</p></span>
             </NavLink>
           </div>
         </div>
@@ -107,7 +111,7 @@ function Home (props) {
             <span className="knowledge-base-title">
             <h2>Knowledge Base</h2>
             <NavLink to='/category/Knowledge-Base/1' className='knowledge-base-read-more'>
-              <strong>Read more →</strong>
+              <strong>Read more</strong>
             </NavLink>
             </span>
             <div className="knowledge-grid-container">
