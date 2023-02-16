@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { NavLink, useParams, Navigate } from "react-router-dom";
 import "../styles/pagination.scss"
+import PageTop from "./PageTop";
 
 function Pagination(props) {
 
@@ -79,4 +80,4 @@ function Pagination(props) {
   }
 }
 
-export default Pagination
+export default PageTop(Pagination)

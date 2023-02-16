@@ -26,9 +26,19 @@
     color: $lighttext;
     margin-bottom: 4vh;
   }
+  .post-cover-container {
+    margin: 0 auto;
+  }
+  img {
+    position: relative;
+    max-width: 873px;
+    max-height: 500px;
+
+  }
 }
 
 .post-container {
+  z-index: 2;
   width: 80vw;
   margin: {
     top: 20vh;
@@ -55,10 +65,14 @@
       color: $lightertext;
       text-decoration: underline 2px $greentext;
       text-decoration-skip-ink: none;
+      transition: 0.35s $transitionfunction;
+      &:hover {
+        color: $greentext;
+      }
     }
     img {
-      margin-left: 5vw;
-      max-width: 50vw;
+
+      max-width: 70vw;
       height: auto;
     }
     b {
@@ -118,11 +132,36 @@
 
 @media (min-width: 1024px) {
   .header-container{
-    img {
-      padding: 0 10vw;
+    padding-left: 5vw;
+    .post-cover-container {
+      max-height: 300px;
+      img {
+        position: relative;
+        z-index: 2;
+      }
     }
   }
   .post-container {
-    width: 60vw;
+    max-width: 50vw;
+    .post-content {
+      img {
+        margin: 0;
+        max-width: 50vw;;
+      }
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .header-container {
+    z-index: 0;
+    width: 95vw;
+    position: relative;
+    padding-bottom: 100px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 93% 100%, 86% 125%, 69% 125%, 20% 125%, 20% 100%, 0% 100%);
+    .recommended-post {
+      margin-left: 10vw;
+    }
+
   }
 }

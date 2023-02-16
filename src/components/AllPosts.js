@@ -6,7 +6,7 @@ function AllPosts(props) {
     return (
       <Pagination
         data={props.data.posts}
-        itemsPerPage={3}
+        itemsPerPage={9}
         pageRoute='posts'
         />
     )

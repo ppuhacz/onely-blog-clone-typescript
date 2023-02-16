@@ -16,7 +16,7 @@ function Navbar(props) {
     return new Date(post2.date) - new Date(post1.date)
   })
 
-
+  console.log(props.data)
     // Mapping all categories
     categories.forEach(category => {
       category = category.categoryName
@@ -29,9 +29,16 @@ function Navbar(props) {
           <span className='category-name'>
             <h1>{path[1].replaceAll('-', ' ')}</h1>
           </span>
+       )
+      } else if (path[0] === 'posts') {
+        return (
+          <span className='category-name'>
+            <h1>All posts</h1>
+          </span>
         )
       }
     }
+    console.log(path)
 
     // Navbar will not be display while on a post page
     if (location.pathname.includes(`/post/`)) {
@@ -39,11 +46,16 @@ function Navbar(props) {
     }
 
   return(
-      <nav>
+      <nav className={path[0] === 'category' || path[0] === 'posts' ? `post-page-nav` : ``}>
         <div>
           <Breadcrumbs />
           {titleDisplay()}
             <ul>
+              <li key='home'>
+              <NavLink to='/' className='nav-link'>
+                Home
+              </NavLink>
+              </li>
               <li key='categories'>
                   <span className='categories-span'>Categories <i class="material-symbols-outlined expand-icon">expand_more</i></span>
                   <ul className='categories-list'>
@@ -54,9 +66,6 @@ function Navbar(props) {
                     </li>
                     {categoriesList}
                   </ul>
-              </li>
-              <li key='blog'>
-                <NavLink to='/' className='nav-link'>Blog</NavLink>
               </li>
               <li key='allAuthors'>
                 <NavLink to='/authors' className='authors-list nav-link' >Our team</NavLink>

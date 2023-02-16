@@ -1,6 +1,7 @@
 @import "./variables.scss";
 
 .all-items-container {
+  z-index: 2;
   width: 80vw;
   margin: {
     top: 7.5vh;
@@ -10,7 +11,8 @@
   }
   text-align: center;
   img {
-    max-height: 21vh;
+    max-width: 410px;
+    max-height: 230px;
   }
   span {
     display: flex;
@@ -21,6 +23,7 @@
   }
 }
 .recent-item {
+  max-width: 420px;
   margin: {
     bottom: 8.5vh;
   }
@@ -31,8 +34,8 @@
 }
 .pagination-container {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
   width: 80vw;
   margin: auto;
   text-align: center;
@@ -40,9 +43,13 @@
 .pagination-control {
   position:relative;
   background-color: $darkbackground;
-  padding: 0.7vh 0;
-  width: 36vw;
-  margin-bottom: 15vh;
+  width: 125px;
+  margin: {
+    bottom: 15vh;
+  }
+  &:first-child{
+    margin-right: 30px;
+  }
   a {
     color: white;
     font-size: 1rem
@@ -66,3 +73,34 @@
   border-top: 13px solid $darkbackground;
   border-left: 13px solid transparent;
 }
+
+@media (min-width: 1024px) {
+  .all-items-container {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    .recent-item {
+      margin-right: 5vh;
+      max-width: 420px;
+      img {
+        max-width: 100%;
+        width: 420px;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .post-page-nav {
+    padding-bottom: 50px;
+        clip-path: polygon(-5% -5%,100% -5%,100% calc(100% - 120.00px),calc(100% - 120.00px) 100%,0 200%);
+
+  }
+}
+
+
+// !!!!!!!!!!!!!
+
+// Zostały 3 podstrony - our team, strona autora, 404, ale coś mogło mi umknąć więc lepiej jeszcze sprawdzić
+
+// !!!!!!!!!!!!

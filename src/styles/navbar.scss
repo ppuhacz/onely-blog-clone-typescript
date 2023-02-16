@@ -46,7 +46,7 @@ li {
     margin: {
       bottom: 5vh;
     }
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 }
 
@@ -75,7 +75,13 @@ li {
       margin-left: 8px;
     }
   }
+  .category-name {
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
     ul {
+      position: relative;
       li {
         display: inline-block;
         margin-right: 60px;

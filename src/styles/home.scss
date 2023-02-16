@@ -21,6 +21,13 @@ a {
   }
   color: #FFF;
 }
+.recommended-post:hover{
+  &:hover{
+    .recommended-post-title {
+      color: $greentext
+    }
+  }
+}
 .recommended-post-text, .recent-knowledge-posts {
   span {
     display: flex;
@@ -29,8 +36,12 @@ a {
     padding: {
       bottom: 1.8vh;
     }
+  }
 }
-
+.recent-knowledge-posts:hover{
+  .knowledge-post-title {
+    color: $greentext
+  }
 }
 .recommended-post-recommended {
   color: $greentext;
@@ -50,13 +61,30 @@ a {
 }
 .recommended-post-read-more, .knowledge-base-read-more {
   color: $greentext;
+  transition: 0.35s $transitionfunction;
+  display: flex;
+}
+.recommended-post-read-more:hover{
+  &:after{
+    left: 30px;
+  }
+}
+.knowledge-base-read-more {
+  strong {
+    transition: 0.35s $transitionfunction;
+  }
+  &:hover{
+    strong{
+      padding-right: 30px;
+    }
+  }
 }
 .recommended-post-read-more:after, .knowledge-base-read-more:after {
   content:'➜';
   font-size: 0.8rem;
   position: relative;
   left: 13px;
-  transition: 0.25s ease-in;
+  transition: 0.35s $transitionfunction
 }
 .posts {
   width: 80vw;
@@ -84,6 +112,9 @@ main img {
   img {
     max-width: 410px;
     max-height: 230px;
+  }
+  &:hover{
+    color:$greentext;
   }
 }
 .recent-post, .recent-knowledge-posts {
@@ -202,6 +233,7 @@ main img {
         font-size: 2.2rem;
       }
     }
+
     .knowledge-grid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -209,23 +241,12 @@ main img {
       .recent-knowledge-posts {
         margin-right: 5vh;
         max-width: 420px;
-        &:hover{
-          .knowledge-post-title {
-            color: $greentext
-          }
-        }
         img {
           max-width: 100%;
           width: 420px;
           height: auto;
         }
-        .knowledge-base-read-more {
 
-
-          // TUTAJ ZROBIĆ ŻEBY SIĘ PRZESUWAŁO NA HOVER, TEKST NIE STRZAŁKA
-
-
-        }
       }
     }
   }
@@ -238,10 +259,6 @@ main img {
     display: flex;
     flex-direction: row;
     align-items: center;
-    &:hover{
-      .recommended-post-title {
-        color: $greentext
-      }
     }
     .recommended-post-title {
       font-size: 2.5rem;
@@ -260,23 +277,15 @@ main img {
       display: flex;
       flex-direction: column;
     }
-    .recommended-post-read-more {
-      display: flex;
-      &:hover{
-        &:after{
-          left: 30px;
-        }
-      }
-    }
+
   }
-}
 
 @media (min-width: 1600px) {
   .recommended-post-container {
     width: 95vw;
     position: relative;
     padding-bottom: 100px;
-    clip-path: polygon(0 0,100% 0,100% calc(100% - 120.00px),calc(100% - 120.00px) 100%,0 100%);
+    clip-path: polygon(-5% -5%,100% -5%,100% calc(100% - 120.00px),calc(100% - 120.00px) 100%,0 100%);
     .recommended-post {
       margin-left: 10vw;
     }

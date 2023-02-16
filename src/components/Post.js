@@ -26,7 +26,10 @@ function Post(props) {
                 <Breadcrumbs />
                 <h1 className="post-title">{post.title}</h1>
                 <p className="post-info">{post.author.name} • Published: {post.date}</p>
-                <img src={post.coverImage.url} alt='Post cover' />
+                <div className="post-cover-container">
+                  <img src={post.coverImage.url} alt='Post cover' />
+                </div>
+
               </div>
             </div>
             <div className="post-container">
