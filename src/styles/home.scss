@@ -63,6 +63,7 @@ a {
   color: $greentext;
   transition: 0.35s $transitionfunction;
   display: flex;
+  width: 20%;
 }
 .recommended-post-read-more:hover{
   &:after{
@@ -135,6 +136,25 @@ main img {
   background-color: $darkbackground;
   margin: 20vh 0 15vh;
   max-width: 1640px;
+  &:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    border-bottom: 70px solid $darkbackground;
+    border-right: 70px solid white;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 70px solid white;
+    border-right: 70px solid transparent;
+  }
 }
 .knowledge-base-container {
   max-width: 1312px;
@@ -152,26 +172,6 @@ main img {
   color: #FFF;
   margin-bottom: 11vh;
 }
-
-.knowledge-base-display:before{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 100%;
-  border-bottom: 70px solid $darkbackground;
-  border-right: 70px solid white;
-}
-.knowledge-base-display:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-bottom: 70px solid white;
-  border-right: 70px solid transparent;
-}
 .show-more-posts-container {
   width: 80vw;
   margin: auto;
@@ -184,27 +184,38 @@ main img {
   width: 213px;
   padding: 0.8vh 0;
   margin-bottom:15vh;
+  cursor: pointer;
   a {
     color: white;
+    font-weight: bold;
   }
-}
-.show-more-posts:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 100%;
-  border-bottom: 15px solid $darkbackground;
-  border-right: 15px solid transparent;
-}
-.show-more-posts:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  border-top: 15px solid $darkbackground;
-  border-left: 15px solid transparent;
+  &:before{
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 100%;
+      border-bottom: 15px solid $darkbackground;
+      border-right: 15px solid transparent;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    border-top: 15px solid $darkbackground;
+    border-left: 15px solid transparent;
+  }
+  &:hover {
+    background-color: $greentext;
+    &:before {
+      border-bottom-color: $greentext;
+    }
+    &:after {
+      border-top-color: $greentext;
+    }
+  }
 }
 
 @media (min-width: 1024px) {

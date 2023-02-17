@@ -1,9 +1,9 @@
 @import "variables.scss";
 
-.author-header {
+.author-header-container {
   background-color: $darkbackground;
-  padding-bottom: 4rem;
-  .author-header-container {
+  padding: 5rem 0 8rem;
+  .author-header {
     width: 80vw;
     margin: {
       left: auto;
@@ -42,7 +42,7 @@
     }
     .answer {
       position: relative;
-      padding: 4vh 9vw;
+      padding: 5% 5%;
       background-color: $lightbackground;
       margin-bottom: 4vh;
       line-height: 2rem;
@@ -60,13 +60,59 @@
   }
 }
 
-.authors-posts {
+.authors-posts-container {
   width: 80vw;
   margin: auto;
-  .author-recent-posts {
-    margin: {
-      top: 13vh;
-      bottom: 8vh;
+  margin: {
+    top: 13vh;
+    bottom: 8vh;
+  }
+  .authors-recent-posts {
+    margin-bottom: 8vh;
+  }
+}
+
+@media (min-width: 769px) {
+  .question-and-answer {
+    .answer {
+      display: flex;
+      align-items: center ;
+      i {
+        margin-right: 30px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .authors-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    img {
+      max-width: 100%;
+      width: 420px;
+      height: auto;
+    }
+  }
+}
+
+@media (min-width: 1171px) {
+  .author-header-container {
+    width: 95vw;
+    clip-path: polygon(-5% -5%,100% -5%,100% calc(100% - 120.00px),calc(100% - 120.00px) 100%,0 100%);
+
+    .author-header{
+      display:flex;
+      flex-direction: row;
+      img {
+        display: flex;
+        width: 25vw;
+        max-width: 410px;
+      }
+      .author-header-text {
+        padding-right: 60px;
+      }
     }
   }
 }

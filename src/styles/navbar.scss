@@ -1,6 +1,22 @@
 @import "variables.scss";
 
-nav {
+.nav-404-page {
+  width: 100vw;
+  background-color: $darkbackground;
+  margin: 0;
+  padding: 3vh 10vw;
+  li {
+    list-style-type: none;
+    padding: 0;
+    line-height: 3.6vh;
+    font: {
+      size: 1.15rem;
+      weight: bold;
+    }
+  }
+}
+
+nav:not(.nav-404-page) {
   width: 100vw;
   background-color: $darkbackground;
   margin: 0;
@@ -64,11 +80,12 @@ li {
     list-style: none;
     position: relative;
     display: inline-block;
+
   }
   .categories-span {
     display: flex;
     align-items: center;
-
+    cursor: pointer;
     .expand-icon{
       color:$greentext;
       font-size: 1rem;
@@ -107,7 +124,7 @@ li {
     }
 }
 @media (min-width: 1600px) {
-  nav {
+  nav:not(.nav-404-page) {
     width: 95vw;
   }
 }

@@ -1,6 +1,7 @@
 import { NavLink, useParams } from "react-router-dom";
 import PageTop from "./PageTop";
 import "../styles/author.scss";
+import Breadcrumbs from "./Breadcrumbs";
 
 function Author(props) {
   const params = useParams();
@@ -27,6 +28,8 @@ function Author(props) {
 
       if(author.length) {
 
+
+
         // Replacing an array with an object
         author = author[0]
 
@@ -42,21 +45,23 @@ function Author(props) {
             </div>
           </NavLink>
           )
+
         })
         return (
           <main>
             <div className="author-page">
-              <div className="author-header">
-                <div className="author-header-container">
-                  <h1>{author.name}</h1>
-                  <p className="author-title">{author.title}</p>
-                  <p className="author-description">{author.description}</p>
-                  <span className="social-media">
-                  {author.socialMedia.twitter ? <a href={author.socialMedia.twitter}><i className="fa fa-twitter" style={socialMediaStyles}></i></a> : '' }
-                  {author.socialMedia.instagram ? <a href={author.socialMedia.instagram}><i className="fa fa-instagram" style={socialMediaStyles}></i></a> : '' }
-                  {author.socialMedia.linkedIn ? <a href={author.socialMedia.linkedIn}><i className="fa fa-linkedin" style={socialMediaStyles}></i></a> : '' }
-                  </span>
-
+              <div className="author-header-container">
+                <div className="author-header">
+                  <div className="author-header-text">
+                    <h1>{author.name}</h1>
+                    <p className="author-title">{author.title}</p>
+                    <p className="author-description">{author.description}</p>
+                    <span className="social-media">
+                    {author.socialMedia.twitter ? <a href={author.socialMedia.twitter}><i className="fa fa-twitter" style={socialMediaStyles}></i></a> : '' }
+                    {author.socialMedia.instagram ? <a href={author.socialMedia.instagram}><i className="fa fa-instagram" style={socialMediaStyles}></i></a> : '' }
+                    {author.socialMedia.linkedIn ? <a href={author.socialMedia.linkedIn}><i className="fa fa-linkedin" style={socialMediaStyles}></i></a> : '' }
+                    </span>
+                  </div>
                   <img src={author.picture.url} alt='author' />
                 </div>
               </div>
@@ -101,9 +106,11 @@ function Author(props) {
                 </div>
               </div>
               {authorsPosts.length ? (
-                <div className="authors-posts">
-                <h3 className="author-recent-posts">All posts from this author:</h3>
-                {authorsPosts}
+                <div className="authors-posts-container">
+                  <div className="authors-recent-posts"><h3>All posts from this author:</h3></div>
+                  <div className="authors-posts">
+                    {authorsPosts}
+                  </div>
                 </div>
               ) : ''}
 

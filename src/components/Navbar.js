@@ -40,13 +40,17 @@ function Navbar(props) {
     }
     console.log(path)
 
-    // Navbar will not be display while on a post page
-    if (location.pathname.includes(`/post/`)) {
+    // Navbar will not be display while on a post and author page
+    if (location.pathname.includes(`/post/`) || location.pathname.includes(`/author/`)) {
       return null
     }
 
   return(
-      <nav className={path[0] === 'category' || path[0] === 'posts' ? `post-page-nav` : ``}>
+      <nav
+      className={
+        path[0] === 'category' || path[0] === 'posts' ? `post-page-nav` : ''
+        // path[0] === '404' ? 'nav-404-page' : ''
+        }>
         <div>
           <Breadcrumbs />
           {titleDisplay()}

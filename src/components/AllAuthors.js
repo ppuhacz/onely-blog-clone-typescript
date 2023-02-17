@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import PageTop from "./PageTop";
-import "../styles/our-team.scss";
+import "../styles/all-authors.scss";
 import { useState } from "react";
 
 function AllAuthors(props) {
@@ -26,8 +26,8 @@ function AllAuthors(props) {
           <img src={author.picture.url} alt='author' />
           <div className={isHovered === author.name ? 'author-card-hovered' : 'author-card-not-hovered'}>
             <div className="author-card-hovered-info">
-            <NavLink to={`/author/` + author.name.toLowerCase().replaceAll(" ", "-")}><h3>{author.name}</h3>
-            <p className="author-title">{author.title}</p></NavLink>
+            <NavLink to={`/author/` + author.name.toLowerCase().replaceAll(" ", "-")}><h3>{author.name}</h3></NavLink>
+            <p className="author-title">{author.title}</p>
             <p className="author-excerpt">{author.description.substring(0, author.description.indexOf("."))}.</p>
             {author.socialMedia.twitter ? <a href={author.socialMedia.twitter}><i className="fa fa-twitter" style={socialMediaStyles}></i></a> : '' }
             {author.socialMedia.instagram ? <a href={author.socialMedia.instagram}><i className="fa fa-instagram" style={socialMediaStyles}></i></a> : '' }
@@ -39,10 +39,27 @@ function AllAuthors(props) {
     })
 
     return (
-      <div className="all-authors-container">
-        <h2>Our Team</h2>
-        {authorsList}
+      <>
+      <div className="all-authors-header">
+        <div className="onely-desc-container">
+          <div className="onely-desc-title">
+            <h2>
+              Onely is a group of geeks on a mission to make the web better.
+            </h2>
+          </div>
+          <div className="onely-desc-text">
+            <p>
+              We holistically audit your website to create a winning strategy for technical optimization, and then we implement it with your team to get you more revenue.
+            </p>
+          </div>
+          </div>
       </div>
+      <div className="our-team"><h2>Our Team</h2></div>
+      <div className="all-authors-container">
+          {authorsList}
+        </div>
+      </>
+
     )
   }
 }

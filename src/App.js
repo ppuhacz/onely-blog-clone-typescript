@@ -6,6 +6,7 @@ import './styles/app.scss'
 import Header from "./components/Header.js";
 import {
   BrowserRouter as Router,
+  Navigate,
   Route,
   Routes,
 } from 'react-router-dom'
@@ -151,7 +152,11 @@ const fetchData = async() => {
           <Navbar data={data}/>
 
           <Routes>
-            <Route path='*' element={ <PageNotFound /> } />
+            <Route
+            path="*"
+            element={<Navigate to="/404" replace />}
+            />
+            <Route path='/404' element= {<PageNotFound />} />
             <Route path='/' element={ <Home data={data} /> } />
             <Route path='/category/:id/:page' element={ <Category data={data} /> } />
             <Route path='/posts/:page' element={ <AllPosts data={data} /> } />

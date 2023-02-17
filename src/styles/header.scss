@@ -8,19 +8,23 @@
   width:100vw;
   text-align: start;
   z-index: 999;
+  text-align: center;
 }
 .header-sticky {
   position: sticky;
   top: 0;
   left: 0;
-  text-align: center;
 }
+
 
 @media (min-width: 1600px) {
   .header-default {
     width: 95vw;
   }
   .header-sticky {
+    width: 100vw;
+  }
+  .header-404-page {
     width: 100vw;
   }
 }

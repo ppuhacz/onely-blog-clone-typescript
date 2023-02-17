@@ -1,4 +1,4 @@
-import { NavLink, useParams } from "react-router-dom"
+import { Navigate, NavLink, useParams } from "react-router-dom"
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import PageTop from "./PageTop.js";
 import Breadcrumbs from './Breadcrumbs.js'
@@ -48,10 +48,9 @@ function Post(props) {
         <main>
           {matchingPostData}
         </main>
-
     )
     } else {
-      return <div className="not-found">Page not found</div>
+      return <Navigate to="/404" replace />
     }
 
   }

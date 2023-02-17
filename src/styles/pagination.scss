@@ -31,6 +31,9 @@
   p {
     color: $datetext
   }
+  &:hover{
+    color: $greentext
+  }
 }
 .pagination-container {
   display: flex;
@@ -47,31 +50,41 @@
   margin: {
     bottom: 15vh;
   }
+  a {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+  }
   &:first-child{
     margin-right: 30px;
   }
-  a {
-    color: white;
-    font-size: 1rem
+  &:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    border-bottom: 13px solid $darkbackground;
+    border-right: 13px solid transparent;
   }
-}
-.pagination-control:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 100%;
-  border-bottom: 13px solid $darkbackground;
-  border-right: 13px solid transparent;
-}
-.pagination-control:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  border-top: 13px solid $darkbackground;
-  border-left: 13px solid transparent;
+  &:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    border-top: 13px solid $darkbackground;
+    border-left: 13px solid transparent;
+  }
+  &:hover {
+    background-color: $greentext;
+    &:before {
+      border-bottom-color: $greentext;
+    }
+    &:after {
+      border-top-color: $greentext;
+    }
+  }
 }
 
 @media (min-width: 1024px) {
