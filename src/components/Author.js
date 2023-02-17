@@ -1,7 +1,6 @@
 import { NavLink, useParams } from "react-router-dom";
 import PageTop from "./PageTop";
 import "../styles/author.scss";
-import Breadcrumbs from "./Breadcrumbs";
 
 function Author(props) {
   const params = useParams();
