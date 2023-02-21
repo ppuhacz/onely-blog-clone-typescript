@@ -10,10 +10,12 @@
     bottom: 9vh;
   }
   text-align: center;
+
   img {
     max-width: 410px;
     max-height: 230px;
   }
+
   span {
     display: flex;
     flex-wrap: wrap;
@@ -22,19 +24,24 @@
     line-height: 1.8rem;
   }
 }
+
 .recent-item {
   max-width: 420px;
   margin: {
     bottom: 8.5vh;
   }
+
   color: $text;
+
   p {
-    color: $datetext
+    color: $datetext;
   }
-  &:hover{
-    color: $greentext
+
+  &:hover {
+    color: $greentext;
   }
 }
+
 .pagination-container {
   display: flex;
   align-items: center;
@@ -42,47 +49,56 @@
   width: 80vw;
   margin: auto;
   text-align: center;
-}
-.pagination-control {
-  position:relative;
-  background-color: $darkbackground;
-  width: 125px;
-  margin: {
-    bottom: 15vh;
-  }
-  a {
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  &:first-child{
-    margin-right: 30px;
-  }
-  &:before{
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 100%;
-    border-bottom: 13px solid $darkbackground;
-    border-right: 13px solid transparent;
-  }
-  &:after{
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    border-top: 13px solid $darkbackground;
-    border-left: 13px solid transparent;
-  }
-  &:hover {
-    background-color: $greentext;
-    &:before {
-      border-bottom-color: $greentext;
+
+  .pagination-control {
+    position: relative;
+    background-color: $darkbackground;
+    width: 125px;
+
+    margin: {
+      bottom: 15vh;
     }
+
+    a {
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    &:first-child {
+      margin-right: 30px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 100%;
+      border-bottom: 13px solid $darkbackground;
+      border-right: 13px solid transparent;
+    }
+
     &:after {
-      border-top-color: $greentext;
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      border-top: 13px solid $darkbackground;
+      border-left: 13px solid transparent;
+    }
+
+    &:hover {
+      background-color: $greentext;
+
+      &:before {
+        border-bottom-color: $greentext;
+      }
+
+      &:after {
+        border-top-color: $greentext;
+      }
     }
   }
 }
@@ -91,9 +107,11 @@
   .all-items-container {
     display: grid;
     grid-template-columns: repeat(3, 3fr);
+
     .recent-item {
       margin-right: 5vh;
       max-width: 420px;
+
       img {
         max-width: 100%;
         width: 420px;
@@ -106,14 +124,6 @@
 @media (min-width: 1600px) {
   .post-page-nav {
     padding-bottom: 50px;
-        clip-path: polygon(-5% -5%,100% -5%,100% calc(100% - 120.00px),calc(100% - 120.00px) 100%,0 200%);
-
+    clip-path: polygon(-5% -5%,100% -5%,100% calc(100% - 120.00px),calc(100% - 120.00px) 100%,0 200%);
   }
 }
-
-
-// !!!!!!!!!!!!!
-
-// Zostały 3 podstrony - our team, strona autora, 404, ale coś mogło mi umknąć więc lepiej jeszcze sprawdzić
-
-// !!!!!!!!!!!!

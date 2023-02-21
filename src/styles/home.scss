@@ -3,98 +3,84 @@
 a {
   text-decoration: none;
 }
-.recommended-post-container , .knowledge-base-container {
+
+.recommended-post-container,
+.knowledge-base-container {
   background-color: $darkbackground;
-  padding: {
-    bottom: 7vh;
-  }
+  padding-bottom: 7vh;
 }
-.recommended-post, .knowledge-base-container {
+
+.recommended-post,
+.knowledge-base-container {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
   width: 80vw;
-  margin: {
-    left: auto;
-    right: auto;
-  }
-  color: #FFF;
-}
-.recommended-post:hover{
-  &:hover{
-    .recommended-post-title {
-      color: $greentext
-    }
-  }
-}
-.recommended-post-text, .recent-knowledge-posts {
-  span {
-    display: flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    padding: {
-      bottom: 1.8vh;
-    }
-  }
-}
-.recent-knowledge-posts:hover{
-  .knowledge-post-title {
-    color: $greentext
-  }
-}
-.recommended-post-recommended {
-  color: $greentext;
-  padding: 0
-}
-.recommended-post-title {
-  padding: 0;
+  margin: 0 auto;
   color: #fff;
 }
-.recommended-post-date, .knowledge-post-info {
-  color: $datetext;
-}
-.recommended-post-excerpt{
- color: $lighttext;
- font-size: 1.2rem;
- line-height: 2rem;
-}
-.recommended-post-read-more, .knowledge-base-read-more {
+
+.recommended-post:hover .recommended-post-title {
   color: $greentext;
-  transition: 0.35s $transitionfunction;
+}
+
+.recommended-post-text span,
+.recent-knowledge-posts span {
   display: flex;
-  width: 20%;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 1.8vh;
 }
-.recommended-post-read-more:hover{
-  &:after{
-    left: 30px;
+
+.recommended-post {
+  &-recommended {
+    color: $greentext;
+    padding: 0;
   }
-}
-.knowledge-base-read-more {
-  strong {
+
+  &-title {
+    padding: 0;
+    color: white;
+  }
+
+  &-date {
+    color: $datetext;
+  }
+
+  &-excerpt {
+    color: $lighttext;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  &-read-more {
+    color: $greentext;
     transition: 0.35s $transitionfunction;
-  }
-  &:hover{
-    strong{
-      padding-right: 30px;
+    display: flex;
+    width: 120px;
+    &:hover {
+      &:after{
+        left: 30px;
+      }
     }
   }
 }
-.recommended-post-read-more:after, .knowledge-base-read-more:after {
-  content:'➜';
+
+.recommended-post-read-more::after,
+.knowledge-base-read-more::after {
+  content: '➜';
   font-size: 0.8rem;
   position: relative;
   left: 13px;
-  transition: 0.35s $transitionfunction
+  transition: 0.35s $transitionfunction;
 }
+
 .posts {
   width: 80vw;
-  margin: {
-    top: 8vh;
-    left: auto;
-    right: auto;
-  }
+  margin: 8vh auto 0;
 }
+
 main img {
   width: 80vw;
   margin: auto;
@@ -103,40 +89,93 @@ main img {
 .recent-post {
   max-width: 410px;
   line-height: 1.8rem;
-  margin: {
-    bottom: 9vh;
-  }
+  margin-bottom: 9vh;
   color: $text;
+
   p {
-    color: $datetext
+    color: $datetext;
   }
+
   img {
     max-width: 410px;
     max-height: 230px;
   }
-  &:hover{
-    color:$greentext;
+
+  &:hover {
+    color: $greentext;
   }
-}
-.recent-post, .recent-knowledge-posts {
+
   span {
     display: flex;
     flex-wrap: wrap;
-    align-items:flex-start;
-    justify-content:space-between;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 }
+
 .recent-knowledge-posts {
+  span {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  }
+
   img {
-    max-height: 25vh;
+    max-height: 230px;
+    max-width: 410px;
+  }
+
+  &:hover .knowledge-base-post-title {
+    color: $greentext;
   }
 }
-.knowledge-base-display {
+
+.knowledge-base {
   position: relative;
   background-color: $darkbackground;
   margin: 20vh 0 15vh;
   max-width: 1640px;
-  &:before{
+
+  &-container {
+    max-width: 1312px;
+  }
+
+  &-post-info {
+      color: $datetext;
+  }
+
+  &-read-more {
+    color: $greentext;
+    transition: 0.35s $transitionfunction;
+    display: flex;
+    width: 120px;
+    strong {
+      transition: 0.35s $transitionfunction;
+    }
+    &:hover {
+      strong {
+        padding-right: 20px;
+      }
+    }
+  }
+
+  &-title {
+    line-height: 2rem;
+    padding-top: 1vh;
+    margin-bottom: 5vh;
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  &-post-title {
+    color: #FFF;
+    margin-bottom: 11vh;
+  }
+
+  &:before {
     content: "";
     position: absolute;
     left: 0;
@@ -145,6 +184,7 @@ main img {
     border-bottom: 70px solid $darkbackground;
     border-right: 70px solid white;
   }
+
   &:after {
     content: "";
     position: absolute;
@@ -156,40 +196,27 @@ main img {
     border-right: 70px solid transparent;
   }
 }
-.knowledge-base-container {
-  max-width: 1312px;
-}
 
-.knowledge-base-title {
-  line-height: 2rem;
-  padding-top: 1vh;
-  margin-bottom: 5vh;
-  h2 {
-    font-size: 2rem;
-  }
-}
-.knowledge-post-title {
-  color: #FFF;
-  margin-bottom: 11vh;
-}
 .show-more-posts-container {
   width: 80vw;
   margin: auto;
   text-align: center;
-}
-.show-more-posts {
-  position:relative;
-  display: inline-block;
-  background-color: $darkbackground;
-  width: 213px;
-  padding: 0.8vh 0;
-  margin-bottom:15vh;
-  cursor: pointer;
-  a {
-    color: white;
-    font-weight: bold;
-  }
-  &:before{
+
+  .show-more-posts {
+    position: relative;
+    display: inline-block;
+    background-color: $darkbackground;
+    width: 213px;
+    padding: 0.8vh 0;
+    margin-bottom: 15vh;
+    cursor: pointer;
+
+    a {
+      color: white;
+      font-weight: bold;
+    }
+
+    &:before {
       content: "";
       position: absolute;
       left: 0;
@@ -197,23 +224,28 @@ main img {
       bottom: 100%;
       border-bottom: 15px solid $darkbackground;
       border-right: 15px solid transparent;
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    border-top: 15px solid $darkbackground;
-    border-left: 15px solid transparent;
-  }
-  &:hover {
-    background-color: $greentext;
-    &:before {
-      border-bottom-color: $greentext;
     }
+
     &:after {
-      border-top-color: $greentext;
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      border-top: 15px solid $darkbackground;
+      border-left: 15px solid transparent;
+    }
+
+    &:hover {
+      background-color: $greentext;
+
+      &:before {
+        border-bottom-color: $greentext;
+      }
+
+      &:after {
+        border-top-color: $greentext;
+      }
     }
   }
 }
@@ -222,9 +254,11 @@ main img {
   .posts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    .recent-post{
+
+    .recent-post {
       margin-right: 5vh;
       max-width: 420px;
+
       img {
         max-width: 100%;
         width: 420px;
@@ -233,31 +267,34 @@ main img {
     }
   }
 
-  .knowledge-base-display {
+  .knowledge-base {
     max-width: 1640px;
     margin: 8vh auto;
-    .knowledge-base-title {
-      width:100%;
+
+    &-title {
+      width: 100%;
       display: flex;
       justify-content: space-between;
+
       h2 {
         font-size: 2.2rem;
       }
     }
 
-    .knowledge-grid-container {
+    &-grid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       width: 100%;
+
       .recent-knowledge-posts {
         margin-right: 5vh;
         max-width: 420px;
+
         img {
           max-width: 100%;
           width: 420px;
           height: auto;
         }
-
       }
     }
   }
@@ -270,26 +307,29 @@ main img {
     display: flex;
     flex-direction: row;
     align-items: center;
-    }
-    .recommended-post-title {
+
+    &-title {
       font-size: 2.5rem;
     }
-    .recommended-post-cover {
+
+    &-cover {
       width: 55%;
       max-width: 740px;
       margin-right: 55px;
+
       img {
         width: 100%;
         max-width: 740px;
       }
     }
-    .recommended-post-text {
+
+    &-text {
       width: 40%;
       display: flex;
       flex-direction: column;
     }
-
   }
+}
 
 @media (min-width: 1600px) {
   .recommended-post-container {
@@ -297,6 +337,7 @@ main img {
     position: relative;
     padding-bottom: 100px;
     clip-path: polygon(-5% -5%,100% -5%,100% calc(100% - 120.00px),calc(100% - 120.00px) 100%,0 100%);
+
     .recommended-post {
       margin-left: 10vw;
     }

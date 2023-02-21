@@ -1,15 +1,44 @@
 import { NavLink } from "react-router-dom";
-import PageTop from './PageTop.js';
+import PageTop from './PageTop';
 import "../styles/home.scss";
 
-function Home (props) {
-  if (props.data) {
-  const allPosts = props.data.posts;
+interface Post {
+  id: string;
+  title: string;
+  date: string;
+  category: string;
+  content: string;
+  recommendedPost: boolean;
+  slug: string;
+  coverImage: {
+    url: string;
+  }
+  excerpt: string;
+  author: {
+    name: string;
+  }
+}
+
+interface Category {
+  categoryName: string;
+  posts: Post[];
+}
+
+interface Props {
+  data?: {
+    categories: Category[];
+    posts: Post[];
+  };
+}
+
+const Home: React.FC<Props> = ({ data }) => {
+  if (data) {
+  const allPosts = data.posts;
 
   //Searching for the recommended post to display at the top of the site
   const recommendedPost = allPosts.filter(post => post.recommendedPost === true)
 
-  const recommendedPostPanel = [];
+  const recommendedPostPanel : JSX.Element[] = [];
   if(recommendedPost.length) {
     recommendedPost.forEach(post => {
       recommendedPostPanel.push(
@@ -46,7 +75,7 @@ function Home (props) {
   // Getting 3 of the newest posts to be displayed above the "Knowledge Base" panel and rendering them
   const threeLatestPosts = allPosts.slice(0, 3);
 
-  const mostRecentPosts = [];
+  const mostRecentPosts : JSX.Element[] = [];
   threeLatestPosts.forEach(post => {
     mostRecentPosts.push(
     <NavLink to={'/post/' + post.slug} key={post.slug}>
@@ -59,29 +88,38 @@ function Home (props) {
     )
   })
 
-  // Getting 3 of the newest posts within the "knowledge base" category
-  const allKnowledgeBasePosts = allPosts.filter(function(post) {
-    return post.category.some(function(category){
-      return category.categoryName === 'Knowledge Base'
-    })
-  })
+// Getting all posts within the "knowledge base" category
 
-  const latestKnowledgeBasePosts = [];
-  allKnowledgeBasePosts.slice(0,3).forEach(post => {
-    latestKnowledgeBasePosts.push(
-      <NavLink to={'/posts/' + post.slug} key={post.slug}>
-        <div className="recent-knowledge-posts">
-          <img src={post.coverImage.url} alt='Post cover' />
-          <span className="knowledge-post-info"><p>{post.author.name},</p><p>{post.date}</p></span>
-          <span className="knowledge-post-title"><h3>{post.title}</h3></span>
-        </div>
-      </NavLink>
-    )
-  })
+const allKnowledgeBasePosts = data?.categories
+  .find(category => category.categoryName === 'Knowledge Base')
+  ?.posts;
 
-  // Geting the next 6 most recent posts to display on the page
+const latestKnowledgeBasePosts: JSX.Element[] = [];
+const knowledgeBasePosts = allKnowledgeBasePosts?.slice(0, 3) ?? [];
+
+knowledgeBasePosts.forEach(post => {
+  latestKnowledgeBasePosts.push(
+    <NavLink to={`/post/${post.slug}`} key={post.slug}>
+      <div className="recent-knowledge-posts">
+        <img src={post.coverImage.url} alt="Post cover" />
+        <span className="knowledge-base-post-info">
+          <p>{post.author.name},</p>
+          <p>{post.date}</p>
+        </span>
+        <span className="knowledge-base-post-title">
+          <h3>{post.title}</h3>
+        </span>
+      </div>
+    </NavLink>
+  );
+});
+
+// Exporting the latestKnowledgeBasePosts variable somewhere else in the code
+
+
+  // Getting the next 6 most recent posts to display on the page
   const nextLatestPosts = allPosts.slice(3, 9);
-  const recentPosts = [];
+  const recentPosts : JSX.Element[] = [];
 
   nextLatestPosts.forEach(post => {
     recentPosts.push(
@@ -106,7 +144,7 @@ function Home (props) {
         <section className="posts">
           {mostRecentPosts}
         </section>
-        <section className="knowledge-base-display">
+        <section className="knowledge-base">
           <div className="knowledge-base-container">
             <span className="knowledge-base-title">
             <h2>Knowledge Base</h2>
@@ -114,7 +152,7 @@ function Home (props) {
               <strong>Read more</strong>
             </NavLink>
             </span>
-            <div className="knowledge-grid-container">
+            <div className="knowledge-base-grid-container">
             {latestKnowledgeBasePosts}
             </div>
           </div>
@@ -133,7 +171,7 @@ function Home (props) {
     </main>
   )
   }
-
+  return null
 }
 
-export default PageTop(Home)
+export default PageTop(Home);

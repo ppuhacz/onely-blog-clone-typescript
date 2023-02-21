@@ -4,27 +4,30 @@
   position: relative;
   background-color: $darkbackground;
   padding: 2vh 10vw;
-  transition: 0.3 ease-in-out;
-  width:100vw;
-  text-align: start;
-  z-index: 999;
+  width: 100vw;
   text-align: center;
-}
-.header-sticky {
-  position: sticky;
-  top: 0;
-  left: 0;
-}
+  z-index: 999;
 
+  &.header-sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 
-@media (min-width: 1600px) {
-  .header-default {
+  &.header-404-page {
+    width: 100%;
+  }
+
+  @media (min-width: 1600px) {
     width: 95vw;
-  }
-  .header-sticky {
-    width: 100vw;
-  }
-  .header-404-page {
-    width: 100vw;
+
+    &.header-sticky {
+      width: 100vw;
+    }
+
+    &.header-404-page {
+      width: 100vw;
+    }
   }
 }

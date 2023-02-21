@@ -1,8 +1,36 @@
-import { NavLink, useParams } from "react-router-dom";
+import { Navigate, NavLink, useParams } from "react-router-dom";
 import PageTop from "./PageTop";
 import "../styles/author.scss";
 
-function Author(props) {
+interface Author {
+  name: string;
+  title: string;
+  description: string;
+  socialMedia: {
+    twitter: string;
+    linkedIn: string;
+    instagram: string;
+  }
+  post: {
+    title: string;
+    date: string;
+    category: string;
+    content: string;
+    slug: string;
+    coverImage: {
+      url: string;
+    }
+  };
+}
+
+
+interface Props {
+  data?: {
+    authors: Author[];
+  };
+}
+
+function AuthorPage(props: Props) {
   const params = useParams();
   const id = params.id;
 
@@ -19,6 +47,7 @@ function Author(props) {
   }
 
     if(props.data) {
+      console.log(props.data)
       let author = props.data.authors;
       console.log(author)
 
@@ -26,8 +55,6 @@ function Author(props) {
       author = author.filter(author => author.name.toLowerCase().replace(" ", "-") === id);
 
       if(author.length) {
-
-
 
         // Replacing an array with an object
         author = author[0]
@@ -117,9 +144,9 @@ function Author(props) {
           </main>
         )
       } else {
-        return <div className='not-found'>Page not found</div>
+        return <Navigate to='/404'/>
       }
 }
 }
 
-export default PageTop(Author)
+export default PageTop(AuthorPage)

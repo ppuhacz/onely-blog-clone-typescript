@@ -1,30 +1,36 @@
 @import "variables.scss";
 
+$author-header-width: 80vw;
+$author-posts-margin-top: 13vh;
+$author-posts-margin-bottom: 8vh;
+
 .author-header-container {
   background-color: $darkbackground;
   padding: 5rem 0 8rem;
+
   .author-header {
-    width: 80vw;
-    margin: {
-      left: auto;
-      right: auto;
-    }
+    width: $author-header-width;
+    margin: 0 auto;
+
     h1 {
       padding-top: 3vh;
       color: #fff;
       font-size: 2.8rem;
     }
+
     .author-title {
       color: $lighttext;
       font-size: 1.15rem;
       margin-top: 1vh;
     }
+
     .author-description {
       margin: 3vh 0;
       color: $lighttext;
       font-size: 1.5rem;
       line-height: 2.3rem;
     }
+
     img {
       display: none;
     }
@@ -32,22 +38,25 @@
 }
 
 .author-questions-container {
-  width: 80vw;
-  margin: auto;
+  width: $author-header-width;
+  margin: 0 auto;
+
   .question-and-answer {
     margin: 3rem 0;
+
     .question {
       font-size: 1.5rem;
       margin-bottom: 4vh;
     }
+
     .answer {
       position: relative;
       padding: 5% 5%;
       background-color: $lightbackground;
       margin-bottom: 4vh;
       line-height: 2rem;
-    }
-    .answer:after {
+
+      &:after {
         content: "";
         position: absolute;
         bottom: 0;
@@ -56,17 +65,15 @@
         height: 0;
         border-bottom: 90px solid white;
         border-left: 90px solid transparent;
+      }
     }
   }
 }
 
 .authors-posts-container {
-  width: 80vw;
-  margin: auto;
-  margin: {
-    top: 13vh;
-    bottom: 8vh;
-  }
+  width: $author-header-width;
+  margin: $author-posts-margin-top auto $author-posts-margin-bottom;
+
   .authors-recent-posts {
     margin-bottom: 8vh;
   }
@@ -76,7 +83,8 @@
   .question-and-answer {
     .answer {
       display: flex;
-      align-items: center ;
+      align-items: center;
+
       i {
         margin-right: 30px;
       }
@@ -89,6 +97,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
+
     img {
       max-width: 100%;
       width: 420px;
@@ -98,18 +107,22 @@
 }
 
 @media (min-width: 1171px) {
-  .author-header-container {
-    width: 95vw;
-    clip-path: polygon(-5% -5%,100% -5%,100% calc(100% - 120.00px),calc(100% - 120.00px) 100%,0 100%);
+  $author-header-width: 95vw;
 
-    .author-header{
-      display:flex;
+  .author-header-container {
+    width: $author-header-width;
+    clip-path: polygon(-5% -5%, 100% -5%, 100% calc(100% - 120.00px), calc(100% - 120.00px) 100%, 0 100%);
+
+    .author-header {
+      display: flex;
       flex-direction: row;
+
       img {
         display: flex;
         width: 25vw;
         max-width: 410px;
       }
+
       .author-header-text {
         padding-right: 60px;
       }

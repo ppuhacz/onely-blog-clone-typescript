@@ -1,27 +1,42 @@
 import { useEffect } from "react";
 import { NavLink, useParams, Navigate } from "react-router-dom";
-import "../styles/pagination.scss"
-import PageTop from "./PageTop";
+import "../styles/pagination.scss";
 
-function Pagination(props) {
+interface Props {
+  data: Post[];
+  itemsPerPage: number;
+  pageRoute: string;
+}
+
+interface Post {
+  slug: string;
+  coverImage: {
+    url: string;
+  };
+  author: {
+    name: string;
+  };
+  date: string;
+  title: string;
+}
+
+function Pagination(props: Props) {
 
   // Creating a variable to keep track of current page
 
-  let { page } = useParams();
+  const { page } = useParams<{ page: string }>();
   const currentPageNumber = (page ? Number(page) : 1);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPageNumber]);
 
-  const data = props.data;
-  const itemsPerPage = props.itemsPerPage;
-  const pageRoute = props.pageRoute;
+  const { data, itemsPerPage, pageRoute } = props;
 
   if (data.length) {
 
     // Creating a pagination with `itemsPerPage` items per site
-    const pages = [{}, ];
+    const pages: Post[][] = [[], ];
     for (let i = 0; i < data.length; i += itemsPerPage) {
       if ( i >= 0) {
         pages.push(data.slice(i, i + itemsPerPage))
@@ -30,7 +45,7 @@ function Pagination(props) {
 
     // Getting all the items that should be displayed on current page and rendering them
     const currentPage = pages[currentPageNumber];
-    const itemsDisplayed = []
+    const itemsDisplayed: JSX.Element[] = [];
 
     // Making a redirect functions so you can't access the /page/:id that doesn't exist
     // If you go lower :id than "1" you will be redirected to /page/1
@@ -38,11 +53,11 @@ function Pagination(props) {
     // If you type in :id that is NaN it will redirect you to /404 page
 
     if (currentPageNumber < 1) {
-      return <Navigate to={`/${pageRoute}/1`} />
+      return <Navigate to={`/${pageRoute}/1`} />;
     } else if (currentPageNumber > pages.length-1) {
-      return <Navigate to={`/${pageRoute}/${pages.length-1}`} />
-    } else  if (isNaN(parseInt(currentPageNumber, 10))){
-      return <Navigate to='/404' />
+      return <Navigate to={`/${pageRoute}/${pages.length-1}`} />;
+    } else  if (isNaN(parseInt(currentPageNumber.toString(), 10))){
+      return <Navigate to='/404' />;
     }
 
     currentPage.forEach((item, index) => {
@@ -78,6 +93,7 @@ function Pagination(props) {
       </main>
     )
   }
+  return <p>Loading</p>
 }
 
-export default PageTop(Pagination)
+export default Pagination;

@@ -1,24 +1,47 @@
-import { Navigate, NavLink, useParams } from "react-router-dom"
+import { Navigate, NavLink, useParams } from "react-router-dom";
 import { RichText } from "@graphcms/rich-text-react-renderer";
-import PageTop from "./PageTop.js";
-import Breadcrumbs from './Breadcrumbs.js'
-import '../styles/post.scss'
+import PageTop from "./PageTop";
+import Breadcrumbs from './Breadcrumbs';
+import '../styles/post.scss';
 
+interface PostData {
+  slug: string;
+  title: string;
+  author: {
+    name: string;
+    picture: {
+      url: string;
+    };
+  };
+  date: string;
+  coverImage: {
+    url: string;
+  };
+  content: {
+    raw: string;
+  };
+}
 
-function Post(props) {
-  const params = useParams();
+interface Props {
+  data?: {
+    posts: PostData[];
+  };
+}
+
+function Post(props: Props): JSX.Element {
+  const params = useParams<{ id: string }>();
   const id = params.id;
 
-  if(props.data) {
+  if (props.data) {
     const allPosts = props.data.posts;
 
     // Looking for a post that matches the id
-    const postFiltered = allPosts.filter(post => post.slug === id)
+    const postFiltered = allPosts.filter((post) => post.slug === id);
 
-    if(postFiltered.length) {
+    if (postFiltered.length) {
       // Iterating through all the post data in order to render a post
-      const matchingPostData = []
-      postFiltered.forEach(post => {
+      const matchingPostData: JSX.Element[] = [];
+      postFiltered.forEach((post) => {
         matchingPostData.push(
           <div key={post.slug}>
             <div className='header-container'>
@@ -41,19 +64,19 @@ function Post(props) {
               </div>
             </div>
           </div>
-        )
-      })
+        );
+      });
 
       return (
         <main>
           {matchingPostData}
         </main>
-    )
+      );
     } else {
-      return <Navigate to="/404" replace />
+      return <Navigate to="/404" replace />;
     }
-
   }
+  return <p>Loading...</p>
 }
 
-export default PageTop(Post)
+export default PageTop(Post);

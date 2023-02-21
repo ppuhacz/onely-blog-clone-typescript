@@ -3,9 +3,8 @@ import onelyLogo from '../images/onely-logo.png'
 import "../styles/header.scss"
 import React, { useState, useEffect } from "react";
 
-
-export default function Header() {
-  const [sticky, setSticky] = useState(false);
+const Header: React.FC = () => {
+  const [sticky, setSticky] = useState<boolean>(false);
   const location = useLocation();
   const path = location.pathname.split("/").slice(1);
 
@@ -25,12 +24,10 @@ export default function Header() {
     };
   }, []);
 
-
-
   return(
       <header className={
         `header-default ${sticky ? "header-sticky" : ''}
-        ${path[0] === '404' ? 'header-404-page' : ''}`
+        // ${path[0] === '404' ? 'header-404-page' : ''}`
       }>
         <div>
           <NavLink to='/' className='nav-link'>
@@ -40,3 +37,5 @@ export default function Header() {
       </header>
   )
 }
+
+export default Header;

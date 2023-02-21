@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, FC } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const PageTop = (Component) => {
-  const PageTop = (props) => {
+const PageTop = <P extends object>(Component: FC<P>): FC<P> => {
+  const PageTopComponent: FC<P> = (props) => {
     const location = useLocation();
 
     useEffect(() => {
@@ -12,7 +12,7 @@ const PageTop = (Component) => {
     return <Component {...props} />;
   };
 
-  return PageTop;
+  return PageTopComponent;
 };
 
 export default PageTop;

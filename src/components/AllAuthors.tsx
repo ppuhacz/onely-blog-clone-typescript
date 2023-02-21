@@ -54,7 +54,9 @@ function AllAuthors(props) {
           </div>
           </div>
       </div>
-      <div className="our-team"><h2>Our Team</h2></div>
+      <div className="our-team">
+        <h2>Our Team</h2>
+      </div>
       <div className="all-authors-container">
           {authorsList}
         </div>
