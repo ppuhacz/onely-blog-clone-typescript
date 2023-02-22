@@ -1,5 +1,6 @@
 import { Navigate, NavLink, useParams } from "react-router-dom";
 import "../styles/author.scss";
+import PageTop from "./PageTop";
 
 interface SocialMedia {
   twitter: string;
@@ -159,6 +160,7 @@ const AuthorPage = (props: Props) => {
         return <Navigate to='/404'/>
       }
 }
+return null
 }
 
-export default AuthorPage;
+export default PageTop(AuthorPage);
