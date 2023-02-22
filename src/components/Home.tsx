@@ -92,7 +92,11 @@ const Home: React.FC<Props> = ({ data }) => {
 
 const allKnowledgeBasePosts = data?.categories
   .find(category => category.categoryName === 'Knowledge Base')
-  ?.posts;
+  ?.posts ?? [];
+
+  allKnowledgeBasePosts.sort(function (post1, post2) {
+    return new Date(post2.date).getTime() - new Date(post1.date).getTime()
+  })
 
 const latestKnowledgeBasePosts: JSX.Element[] = [];
 const knowledgeBasePosts = allKnowledgeBasePosts?.slice(0, 3) ?? [];

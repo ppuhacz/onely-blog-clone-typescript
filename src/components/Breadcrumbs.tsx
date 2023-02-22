@@ -1,10 +1,10 @@
-import React from "react";
+import React, { FC } from 'react';
 import { useLocation } from "react-router-dom";
 
-const Breadcrumbs = () => {
+const Breadcrumbs : FC = () => {
   const location = useLocation();
   const paths = location.pathname.split("/").slice(1);
-  let breadcrumbs = [];
+  let breadcrumbs: JSX.Element[] = [];
 
   paths.forEach((path, index) => {
     breadcrumbs.push(<span key={index}> {path} </span>);
@@ -21,6 +21,7 @@ const Breadcrumbs = () => {
       </div>
     );
   }
+  return null
 };
 
 export default Breadcrumbs;

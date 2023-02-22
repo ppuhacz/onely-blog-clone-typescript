@@ -1,8 +1,8 @@
-import React, { useEffect, FC } from 'react';
+import React, { useEffect, ComponentType } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const PageTop = <P extends object>(Component: FC<P>): FC<P> => {
-  const PageTopComponent: FC<P> = (props) => {
+const PageTop = <P extends object>(Component: ComponentType<P>): ComponentType<P> => {
+  const PageTopComponent = (props: P) => {
     const location = useLocation();
 
     useEffect(() => {

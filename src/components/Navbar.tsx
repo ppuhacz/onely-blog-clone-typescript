@@ -34,7 +34,6 @@ const Navbar: FunctionComponent<NavbarProps> = ({ data }) => {
       return new Date(post2.date).getTime() - new Date(post1.date).getTime();
     });
 
-    console.log(data);
     // Mapping all categories
     categories.forEach((category) => {
       const categoryName = category.categoryName;

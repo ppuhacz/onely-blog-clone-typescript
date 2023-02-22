@@ -93,7 +93,7 @@ function Pagination(props: Props) {
       </main>
     )
   }
-  return <p>Loading</p>
+  return null
 }
 
 export default Pagination;

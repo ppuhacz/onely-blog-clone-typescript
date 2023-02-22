@@ -1,5 +1,6 @@
 import { Navigate, NavLink, useParams } from "react-router-dom";
 import { RichText } from "@graphcms/rich-text-react-renderer";
+import { RichTextContent, } from "@graphcms/rich-text-types";
 import PageTop from "./PageTop";
 import Breadcrumbs from './Breadcrumbs';
 import '../styles/post.scss';
@@ -18,8 +19,8 @@ interface PostData {
     url: string;
   };
   content: {
-    raw: string;
-  };
+    raw: RichTextContent;
+  }
 }
 
 interface Props {

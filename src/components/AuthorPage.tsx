@@ -1,28 +1,49 @@
 import { Navigate, NavLink, useParams } from "react-router-dom";
-import PageTop from "./PageTop";
 import "../styles/author.scss";
+
+interface SocialMedia {
+  twitter: string;
+  linkedIn: string;
+  instagram: string;
+}
+
+interface Post {
+  title: string;
+  date: string;
+  category: string;
+  content: string;
+  slug: string;
+  coverImage: {
+    url: string;
+  };
+}
 
 interface Author {
   name: string;
   title: string;
   description: string;
-  socialMedia: {
-    twitter: string;
-    linkedIn: string;
-    instagram: string;
-  }
-  post: {
-    title: string;
-    date: string;
-    category: string;
-    content: string;
-    slug: string;
-    coverImage: {
-      url: string;
-    }
+  socialMedia: SocialMedia;
+  posts: Post[];
+  picture: {
+    url: string;
+  };
+  question1: {
+    question: string;
+    answer: string;
+  };
+  question2: {
+    question: string;
+    answer: string;
+  };
+  question3: {
+    question: string;
+    answer: string;
+  };
+  question4: {
+    question: string;
+    answer: string;
   };
 }
-
 
 interface Props {
   data?: {
@@ -30,9 +51,8 @@ interface Props {
   };
 }
 
-function AuthorPage(props: Props) {
-  const params = useParams();
-  const id = params.id;
+const AuthorPage = (props: Props) => {
+  const { id } = useParams<{ id: string }>();
 
   const socialMediaStyles = {
     color: '#3dd44f',
@@ -46,33 +66,25 @@ function AuthorPage(props: Props) {
     marginBottom: '1rem'
   }
 
-    if(props.data) {
-      console.log(props.data)
-      let author = props.data.authors;
-      console.log(author)
+  if (props.data) {
+    let authors = props.data.authors;
 
-      // Filtering chosen author
-      author = author.filter(author => author.name.toLowerCase().replace(" ", "-") === id);
+    // Filtering chosen author
+    const author = authors.find(author => author.name.toLowerCase().replace(" ", "-") === id);
 
-      if(author.length) {
+    if (author) {
+      // Iterating through all posts of chosen author
+      const authorsPosts = author.posts.map((post) => (
+        <NavLink to={`/post/${post.slug}`} key={post.slug}>
+          <div className="recent-post">
+            <img src={post.coverImage.url} alt='Post cover' />
+            <span><p>{author.name},</p><p>{post.date}</p></span>
+            <span><h3>{post.title}</h3></span>
+          </div>
+        </NavLink>
+      ));
 
-        // Replacing an array with an object
-        author = author[0]
 
-        // Iterating through all posts of chosen author
-        const authorsPosts = [];
-        author.posts.forEach(post => {
-          authorsPosts.push(
-            <NavLink to={'/post/' + post.slug} key={post.slug}>
-            <div className="recent-post">
-              <img src={post.coverImage.url} alt='Post cover' />
-              <span><p>{author.name},</p><p>{post.date}</p></span>
-              <span><h3>{post.title}</h3></span>
-            </div>
-          </NavLink>
-          )
-
-        })
         return (
           <main>
             <div className="author-page">
@@ -149,4 +161,4 @@ function AuthorPage(props: Props) {
 }
 }
 
-export default PageTop(AuthorPage)
+export default AuthorPage;
