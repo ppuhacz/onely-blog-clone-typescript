@@ -88,7 +88,7 @@ const Home: React.FC<Props> = ({ data }) => {
     )
   })
 
-// Getting all posts within the "knowledge base" category
+// Getting all posts within the "knowledge base" category, sorting them from the newst to the oldest and displaying 3 of the most recent at the display
 
 const allKnowledgeBasePosts = data?.categories
   .find(category => category.categoryName === 'Knowledge Base')

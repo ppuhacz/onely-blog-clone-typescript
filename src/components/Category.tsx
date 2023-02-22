@@ -47,7 +47,7 @@ const Category: FC<Props> = (props) => {
       return (
         <Pagination
           data={matchedPosts.posts}
-          itemsPerPage={3}
+          itemsPerPage={9}
           pageRoute={`category/` + categoryName}
         />
       )
