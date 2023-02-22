@@ -17,7 +17,6 @@ import AllPosts from './components/AllPosts'
 import AllAuthors from './components/AllAuthors'
 import PageNotFound from './components/PageNotFound'
 import AuthorPage from "./components/AuthorPage";
-import PageTop from "./components/PageTop";
 
 
 
