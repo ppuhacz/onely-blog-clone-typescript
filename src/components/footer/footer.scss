@@ -1,0 +1,25 @@
+@import "../../styles/variables.scss";
+
+footer {
+  background-color: $darkbackground;
+
+  .footer-container {
+    width: 80vw;
+    margin: auto;
+    padding: 7vh 0;
+
+    .footer-logo {
+      margin-bottom: 5vh;
+    }
+
+    .footer-text {
+      color: $lighttext;
+      margin-bottom: 5vh;
+    }
+
+    @media (min-width: 1024px) {
+      width: 25%;
+      margin: 0 10vw;
+    }
+  }
+}

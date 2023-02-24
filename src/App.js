@@ -1,34 +1,32 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
-import { request } from 'graphql-request';
-import Footer from "./components/Footer";
-import './styles/app.scss'
-import Header from "./components/Header";
+import Navbar from "./components/navbar/navbar";
+import { request } from "graphql-request";
+import Footer from "./components/footer/footer";
+import "./styles/app.scss";
+import Header from "./components/header/header";
 import {
   BrowserRouter as Router,
   Navigate,
   Route,
   Routes,
-} from 'react-router-dom'
-import Home from './components/Home'
-import Category from './components/Category'
-import Post from './components/Post'
-import AllPosts from './components/AllPosts'
-import AllAuthors from './components/AllAuthors'
-import PageNotFound from './components/PageNotFound'
-import AuthorPage from "./components/AuthorPage";
-
-
+} from "react-router-dom";
+import HomePage from "./pages/home-page";
+import CategoryPage from "./pages/category-page";
+import PostPage from "./pages/post-page";
+import AllPostsPage from "./pages/all-posts-page";
+import AllAuthorsPage from "./pages/all-authors-page";
+import PageNotFoundPage from "./pages/page-not-found-page";
+import AuthorPage from "./pages/author-page";
 
 function App() {
-const [data, setData] = useState(null);
-const [loading, setLoading] = useState(true)
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-const fetchData = async() => {
-
-      const response = await request('https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clcozcwgx0lbo01uneoby69s1/master',
-      `
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await request(
+        "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clcozcwgx0lbo01uneoby69s1/master",
+        `
       query Assets {
         authors {
           name
@@ -132,46 +130,48 @@ const fetchData = async() => {
       }
 
       `
-      )
-      setData(response)
-      setLoading(false)
-    }
-  fetchData();
-}, []);
-
+      );
+      setData(response);
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
-    {loading ? (
-      <p>Loading...</p>
-    ) : (
-      <Router>
-        <div className="App">
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <Router>
+          <div className="App">
+            <Header />
+            <Navbar data={data} />
 
-          <Header />
-          <Navbar data={data}/>
+            <Routes>
+              <Route path="*" element={<Navigate to="/404" replace />} />
+              <Route path="/404" element={<PageNotFoundPage />} />
+              <Route path="/" element={<HomePage data={data} />} />
+              <Route
+                path="/category/:id/:page"
+                element={<CategoryPage data={data} />}
+              />
+              <Route
+                path="/posts/:page"
+                element={<AllPostsPage data={data} />}
+              />
+              <Route path="/post/:id" element={<PostPage data={data} />} />
+              <Route path="/author/:id" element={<AuthorPage data={data} />} />
+              <Route
+                path="/authors/"
+                element={<AllAuthorsPage data={data} />}
+              />
+            </Routes>
 
-          <Routes>
-            <Route
-            path="*"
-            element={<Navigate to="/404" replace />}
-            />
-            <Route path='/404' element= {<PageNotFound />} />
-            <Route path='/' element={ <Home data={data} /> } />
-            <Route path='/category/:id/:page' element={ <Category data={data} /> } />
-            <Route path='/posts/:page' element={ <AllPosts data={data} /> } />
-            <Route path='/post/:id' element={ <Post data={data} /> } />
-            <Route path='/author/:id' element={ <AuthorPage data={data} /> } />
-            <Route path='/authors/' element = { <AllAuthors data={data} /> } />
-          </Routes>
-
-          <Footer />
-
-        </div>
-      </Router>
-    )}
+            <Footer />
+          </div>
+        </Router>
+      )}
     </>
-
   );
 }
 
