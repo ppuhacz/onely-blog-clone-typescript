@@ -1,6 +1,6 @@
+import { NavLink } from "react-router-dom";
 import PageTop from "../page-top/page-top";
 import "./page-not-found.scss";
-import { NavLink } from "react-router-dom";
 
 function PageNotFound() {
   return (

@@ -10,7 +10,7 @@
 
     .error-name {
       font-size: 2.8rem;
-      color: white;
+      color: #fff;
       line-height: 3.5rem;
       margin-bottom: 8vh;
     }
@@ -43,7 +43,7 @@
       right: 0;
       bottom: 100%;
       border-bottom: 70px solid $darkbackground;
-      border-right: 70px solid white;
+      border-right: 70px solid #fff;
     }
 
     &:after {
@@ -53,7 +53,7 @@
       left: 0;
       width: 0;
       height: 0;
-      border-bottom: 70px solid white;
+      border-bottom: 70px solid #fff;
       border-right: 70px solid transparent;
     }
   }

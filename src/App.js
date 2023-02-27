@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./components/navbar/navbar";
 import { request } from "graphql-request";
-import Footer from "./components/footer/footer";
 import "./styles/app.scss";
-import Header from "./components/header/header";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -144,8 +141,8 @@ function App() {
       ) : (
         <Router>
           <div className="App">
-            <Header />
-            <Navbar data={data} />
+            {/* <Header />
+            <Navbar data={data} /> */}
 
             <Routes>
               <Route path="*" element={<Navigate to="/404" replace />} />
@@ -166,8 +163,6 @@ function App() {
                 element={<AllAuthorsPage data={data} />}
               />
             </Routes>
-
-            <Footer />
           </div>
         </Router>
       )}

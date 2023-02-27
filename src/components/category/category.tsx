@@ -1,12 +1,13 @@
+import React, { FC } from "react";
 import { useParams } from "react-router-dom";
 import Pagination from "../pagination/pagination";
-import React, { FC } from "react";
 import { Props } from "./types/category-inteface";
+import { CategoryEnum } from "./types/category-enum";
 
 const Category: FC<Props> = (props) => {
   const params = useParams<{ id: string }>();
   const id = params.id;
-
+  const enumValue = CategoryEnum.numberOfPages;
   if (props.data) {
     const categories = props.data.categories;
 
@@ -27,7 +28,7 @@ const Category: FC<Props> = (props) => {
       return (
         <Pagination
           data={matchedPosts.posts}
-          itemsPerPage={9}
+          itemsPerPage={enumValue}
           pageRoute={`category/` + categoryName}
         />
       );

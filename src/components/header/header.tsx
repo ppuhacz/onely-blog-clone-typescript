@@ -1,7 +1,7 @@
+import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import onelyLogo from "../../images/onely-logo.png";
 import "./header.scss";
-import React, { useState, useEffect } from "react";
 
 const Header: React.FC = () => {
   const [sticky, setSticky] = useState<boolean>(false);

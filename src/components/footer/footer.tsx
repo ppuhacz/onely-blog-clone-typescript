@@ -1,7 +1,7 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import onelyLogo from "../../images/onely-logo.png";
 import "./footer.scss";
-import React from "react";
 import { socialMediaStyles } from "./footer-social-media-styles";
 
 function Footer(): JSX.Element {

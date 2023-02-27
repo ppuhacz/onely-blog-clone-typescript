@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import PageTop from "../page-top/page-top";
 import "./home.scss";

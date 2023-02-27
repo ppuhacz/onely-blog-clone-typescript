@@ -84,7 +84,7 @@ function Pagination(props: Props) {
       </main>
     );
   }
-  return null;
+  return <div> There are no posts to display at the moment.</div>;
 }
 
 export default Pagination;

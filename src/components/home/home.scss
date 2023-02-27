@@ -41,7 +41,7 @@ a {
 
   &-title {
     padding: 0;
-    color: white;
+    color: #fff;
   }
 
   &-date {
@@ -182,7 +182,7 @@ main img {
     right: 0;
     bottom: 100%;
     border-bottom: 70px solid $darkbackground;
-    border-right: 70px solid white;
+    border-right: 70px solid #fff;
   }
 
   &:after {
@@ -192,7 +192,7 @@ main img {
     left: 0;
     width: 0;
     height: 0;
-    border-bottom: 70px solid white;
+    border-bottom: 70px solid #fff;
     border-right: 70px solid transparent;
   }
 }
@@ -212,7 +212,7 @@ main img {
     cursor: pointer;
 
     a {
-      color: white;
+      color: #fff;
       font-weight: bold;
     }
 
