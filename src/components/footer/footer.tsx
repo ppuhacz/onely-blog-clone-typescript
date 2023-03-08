@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import onelyLogo from "../../images/onely-logo.png";
+import onelyLogo from "../../img/onely-logo.png";
 import "./footer.scss";
-import { socialMediaStyles } from "./footer-social-media-styles";
 
 function Footer(): JSX.Element {
   return (
@@ -16,13 +15,13 @@ function Footer(): JSX.Element {
           commercial value to clients through cutting-edge solutions.
         </p>
         <a href="https://www.facebook.com/Onelycom">
-          <i className="fa fa-facebook" style={socialMediaStyles} />
+          <i className="fa fa-facebook social-media-footer" />
         </a>
         <a href="https://www.linkedin.com/company/onelycom">
-          <i className="fa fa-linkedin" style={socialMediaStyles} />
+          <i className="fa fa-linkedin social-media-footer" />
         </a>
         <a href="https://twitter.com/onelycom">
-          <i className="fa fa-twitter" style={socialMediaStyles} />
+          <i className="fa fa-twitter social-media-footer" />
         </a>
       </div>
     </footer>

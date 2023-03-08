@@ -1,5 +1,5 @@
 import Category from "../components/category/category";
-import { Props } from "../components/category/types/category-inteface";
+import { Props } from "../components/category/types/category.inteface";
 import Layout from "../components/layout/layout";
 
 const CategoryPage = (props: Props) => {

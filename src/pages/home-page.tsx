@@ -1,5 +1,5 @@
 import Home from "../components/home/home";
-import { Props } from "../components/home/types/home-interface";
+import { Props } from "../components/home/types/home.interface";
 import Layout from "../components/layout/layout";
 
 const HomePage = (props: Props) => {

@@ -17,6 +17,7 @@ export interface Post {
 
 export interface Author {
   name: string;
+  slug: string;
   title: string;
   description: string;
   socialMedia: SocialMedia;

@@ -1,27 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import onelyLogo from "../../images/onely-logo.png";
+import { NavLink, useLocation, Location } from "react-router-dom";
+import onelyLogo from "../../img/onely-logo.png";
 import "./header.scss";
 
-const Header: React.FC = () => {
+const Header = () => {
   const [sticky, setSticky] = useState<boolean>(false);
-  const location = useLocation();
+  const location: Location = useLocation();
   const path = location.pathname.split("/").slice(1);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.pageYOffset > 25) {
-        setSticky(true);
-      } else {
-        setSticky(false);
-      }
-    };
+    const handleScroll = () => setSticky(window.pageYOffset > 25);
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

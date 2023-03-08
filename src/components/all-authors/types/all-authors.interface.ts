@@ -6,6 +6,7 @@ export interface SocialMedia {
 
 export interface Author {
   name: string;
+  slug: string;
   picture: {
     url: string;
   };

@@ -65,6 +65,10 @@ li {
     margin-bottom: 5vh;
     font-size: 2rem;
 
+    &::first-letter {
+      text-transform: capitalize;
+    }
+
     @media (min-width: 1140px) {
       font-size: 3.5rem;
     }

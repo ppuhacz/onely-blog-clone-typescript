@@ -1,7 +1,7 @@
 import { Navigate, NavLink, useParams } from "react-router-dom";
 import "./author.scss";
 import PageTop from "../page-top/page-top";
-import { Props } from "./types/author-interface";
+import { Props } from "./types/author.interface";
 import { socialMediaStyles, quotationMarkStyles } from "./author-styles";
 
 const Author = (props: Props) => {
@@ -11,9 +11,7 @@ const Author = (props: Props) => {
     let authors = props.data.authors;
 
     // Filtering chosen author
-    const author = authors.find(
-      (author) => author.name.toLowerCase().replace(" ", "-") === id
-    );
+    const author = authors.find((author) => author.slug === id);
 
     if (author) {
       // Iterating through all posts of chosen author
@@ -42,35 +40,29 @@ const Author = (props: Props) => {
                   <p className="author-title">{author.title}</p>
                   <p className="author-description">{author.description}</p>
                   <span className="social-media">
-                    {author.socialMedia.twitter ? (
+                    {author.socialMedia.twitter && (
                       <a href={author.socialMedia.twitter}>
                         <i
                           className="fa fa-twitter"
                           style={socialMediaStyles}
                         ></i>
                       </a>
-                    ) : (
-                      ""
                     )}
-                    {author.socialMedia.instagram ? (
+                    {author.socialMedia.instagram && (
                       <a href={author.socialMedia.instagram}>
                         <i
                           className="fa fa-instagram"
                           style={socialMediaStyles}
                         ></i>
                       </a>
-                    ) : (
-                      ""
                     )}
-                    {author.socialMedia.linkedIn ? (
+                    {author.socialMedia.linkedIn && (
                       <a href={author.socialMedia.linkedIn}>
                         <i
                           className="fa fa-linkedin"
                           style={socialMediaStyles}
                         ></i>
                       </a>
-                    ) : (
-                      ""
                     )}
                   </span>
                 </div>

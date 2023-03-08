@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import PageTop from "../page-top/page-top";
 import "./home.scss";
-import { Props } from "./types/home-interface";
+import { Props } from "./types/home.interface";
 
 const Home: React.FC<Props> = ({ data }) => {
   if (data) {

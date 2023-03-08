@@ -1,5 +1,6 @@
 export interface Category {
   categoryName: string;
+  slug: string;
 }
 
 export interface Post {

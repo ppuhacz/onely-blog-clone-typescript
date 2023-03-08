@@ -52,12 +52,18 @@
     margin-bottom: 4.5vh;
     overflow: hidden;
 
-
     &:hover {
       img {
         transform: scale(1.08);
       }
     }
+
+    .social-media {
+      color: #3dd44f ;
+      font-size: 1.6rem;
+      margin-right: 1rem;
+    };
+
 
     a {
       color: #fff;
@@ -72,6 +78,12 @@
       display: none;
     }
 
+    &:hover {
+      .author-card-hovered {
+        display: block;
+      }
+    }
+
     .author-card-hovered {
       background-color: $darkbackgroundtransparent;
       width: 100%;
@@ -79,12 +91,14 @@
       position: absolute;
       z-index: 2;
       top: 0;
+      display: none;
 
       .author-card-hovered-info {
         position: absolute;
         top: 20%;
         height: 60%;
         padding: 0 10%;
+
 
 
         h3 {
@@ -108,7 +122,6 @@
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
         }
-
       }
     }
   }

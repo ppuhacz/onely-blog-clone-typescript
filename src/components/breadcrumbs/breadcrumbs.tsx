@@ -1,9 +1,10 @@
 import React, { FC } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Location } from "react-router-dom";
 
 const Breadcrumbs: FC = () => {
-  const location = useLocation();
-  const paths = location.pathname.split("/").slice(1);
+  const location: Location = useLocation();
+  console.log(location);
+  const paths: string[] = location.pathname.split("/").slice(1);
   let breadcrumbs: JSX.Element[] = [];
 
   paths.forEach((path, index) => {

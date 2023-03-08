@@ -1,4 +1,4 @@
-import { Props } from "../components/all-authors/types/all-authors-interface";
+import { Props } from "../components/all-authors/types/all-authors.interface";
 import Layout from "../components/layout/layout";
 import PageNotFound from "../components/page-not-found/page-not-found";
 

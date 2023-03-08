@@ -12,6 +12,7 @@ export interface Post {
 
 export interface CategoryData {
   categoryName: string;
+  slug: string;
   posts: Post[];
 }
 
