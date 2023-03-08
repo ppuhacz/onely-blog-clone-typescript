@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { NavLink, useParams, Navigate } from "react-router-dom";
 import "./pagination.scss";
-import { Props, Post } from "./types/pagination-interface";
+import { Props, Post } from "./types/pagination.interface";
 
-function Pagination(props: Props) {
+function Pagination({ data, itemsPerPage, pageRoute }: Props) {
   // Creating a variable to keep track of current page
 
   const { page } = useParams<{ page: string }>();
@@ -12,8 +12,6 @@ function Pagination(props: Props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPageNumber]);
-
-  const { data, itemsPerPage, pageRoute } = props;
 
   if (data.length) {
     // Creating a pagination with `itemsPerPage` items per site
@@ -84,6 +82,7 @@ function Pagination(props: Props) {
       </main>
     );
   }
+
   return <div> There are no posts to display at the moment.</div>;
 }
 

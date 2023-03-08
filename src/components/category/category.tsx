@@ -15,14 +15,6 @@ const Category: FC<Props> = ({ data }) => {
     // Filtering chosen category
     const categoryPosts = categories.filter((category) => category.slug === id);
 
-    // Sorting all posts in descending order
-
-    // !!! To powinno być posortowane na etapie pobrania danych z graphQL, tam są komendy do sortowania
-
-    categoryPosts[0].posts.sort(function (post1, post2) {
-      return new Date(post2.date).getTime() - new Date(post1.date).getTime();
-    });
-
     if (categoryPosts.length) {
       const [matchedPosts] = categoryPosts;
 

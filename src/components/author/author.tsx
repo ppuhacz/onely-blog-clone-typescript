@@ -1,14 +1,15 @@
+import React, { memo } from "react";
 import { Navigate, NavLink, useParams } from "react-router-dom";
 import "./author.scss";
 import PageTop from "../page-top/page-top";
 import { Props } from "./types/author.interface";
 import { socialMediaStyles, quotationMarkStyles } from "./author-styles";
 
-const Author = (props: Props) => {
+const Author = memo((props: Props) => {
   const { id } = useParams<{ id: string }>();
-
-  if (props.data) {
-    let authors = props.data.authors;
+  const { data } = props;
+  if (data) {
+    let { authors } = data;
 
     // Filtering chosen author
     const author = authors.find((author) => author.slug === id);
@@ -41,7 +42,11 @@ const Author = (props: Props) => {
                   <p className="author-description">{author.description}</p>
                   <span className="social-media">
                     {author.socialMedia.twitter && (
-                      <a href={author.socialMedia.twitter}>
+                      <a
+                        href={author.socialMedia.twitter}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <i
                           className="fa fa-twitter"
                           style={socialMediaStyles}
@@ -49,7 +54,11 @@ const Author = (props: Props) => {
                       </a>
                     )}
                     {author.socialMedia.instagram && (
-                      <a href={author.socialMedia.instagram}>
+                      <a
+                        href={author.socialMedia.instagram}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <i
                           className="fa fa-instagram"
                           style={socialMediaStyles}
@@ -57,7 +66,11 @@ const Author = (props: Props) => {
                       </a>
                     )}
                     {author.socialMedia.linkedIn && (
-                      <a href={author.socialMedia.linkedIn}>
+                      <a
+                        href={author.socialMedia.linkedIn}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <i
                           className="fa fa-linkedin"
                           style={socialMediaStyles}
@@ -70,56 +83,27 @@ const Author = (props: Props) => {
               </div>
             </div>
             <div className="author-questions-container">
-              <div className="question-and-answer">
-                <div className="question">
-                  <h4>{author.question1.question}</h4>
-                </div>
-                <div className="answer">
-                  <i
-                    className="material-symbols-outlined"
-                    style={quotationMarkStyles}
-                  >
-                    format_quote
-                  </i>
-                  <p>{author.question1.answer}</p>
-                </div>
-                <div className="question">
-                  <h4>{author.question2.question}</h4>
-                </div>
-                <div className="answer">
-                  <i
-                    className="material-symbols-outlined"
-                    style={quotationMarkStyles}
-                  >
-                    format_quote
-                  </i>
-                  <p>{author.question2.answer}</p>
-                </div>
-                <div className="question">
-                  <h4>{author.question3.question}</h4>
-                </div>
-                <div className="answer">
-                  <i
-                    className="material-symbols-outlined"
-                    style={quotationMarkStyles}
-                  >
-                    format_quote
-                  </i>
-                  <p>{author.question3.answer}</p>
-                </div>
-                <div className="question">
-                  <h4>{author.question4.question}</h4>
-                </div>
-                <div className="answer">
-                  <i
-                    className="material-symbols-outlined"
-                    style={quotationMarkStyles}
-                  >
-                    format_quote
-                  </i>
-                  <p>{author.question4.answer}</p>
-                </div>
-              </div>
+              {Object.values(author).map((qa, i) => {
+                if (qa.question && qa.answer) {
+                  return (
+                    <div className="question-and-answer" key={i}>
+                      <div className="question">
+                        <h4>{qa.question}</h4>
+                      </div>
+                      <div className="answer">
+                        <i
+                          className="material-symbols-outlined"
+                          style={quotationMarkStyles}
+                        >
+                          format_quote
+                        </i>
+                        <p>{qa.answer}</p>
+                      </div>
+                    </div>
+                  );
+                }
+                return null;
+              })}
             </div>
             {authorsPosts.length ? (
               <div className="authors-posts-container">
@@ -139,6 +123,6 @@ const Author = (props: Props) => {
     }
   }
   return null;
-};
+});
 
 export default PageTop(Author);

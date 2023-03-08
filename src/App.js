@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { request } from "graphql-request";
 import "./styles/app.scss";
 import { BrowserRouter as Router } from "react-router-dom";
-import { ASSETS_QUERY } from "./config/queries";
+import { ASSETS_QUERY } from "./config/ASSETS_QUERY";
 import { GetRoutes } from "./config/routes";
 
 function App() {

@@ -6,7 +6,7 @@ const PostPage = (props: Props) => {
   const { data } = props;
   return (
     <Layout data={data}>
-      <Post {...props} />
+      <Post />
     </Layout>
   );
 };

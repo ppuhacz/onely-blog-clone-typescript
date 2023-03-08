@@ -14,13 +14,21 @@ function Footer(): JSX.Element {
           Working across the technical spectrum of SEO, Onely provides strong
           commercial value to clients through cutting-edge solutions.
         </p>
-        <a href="https://www.facebook.com/Onelycom">
+        <a
+          href="https://www.facebook.com/Onelycom"
+          target="_blank"
+          rel="noreferrer"
+        >
           <i className="fa fa-facebook social-media-footer" />
         </a>
-        <a href="https://www.linkedin.com/company/onelycom">
+        <a
+          href="https://www.linkedin.com/company/onelycom"
+          target="_blank"
+          rel="noreferrer"
+        >
           <i className="fa fa-linkedin social-media-footer" />
         </a>
-        <a href="https://twitter.com/onelycom">
+        <a href="https://twitter.com/onelycom" target="_blank" rel="noreferrer">
           <i className="fa fa-twitter social-media-footer" />
         </a>
       </div>

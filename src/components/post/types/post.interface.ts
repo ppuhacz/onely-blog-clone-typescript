@@ -1,25 +1,34 @@
 import { RichTextContent } from "@graphcms/rich-text-types";
 
-export interface PostData {
+interface Content {
+  raw: RichTextContent;
+}
+
+interface Author {
+  name: string;
   slug: string;
-  title: string;
-  author: {
-    name: string;
-    picture: {
-      url: string;
-    };
-  };
-  date: string;
-  coverImage: {
+  picture: {
     url: string;
-  };
-  content: {
-    raw: RichTextContent;
   };
 }
 
+interface CoverImage {
+  url: string;
+}
+
+export interface Post {
+  title: string;
+  date: string;
+  slug: string;
+  content: Content;
+  coverImage: CoverImage;
+  author: Author;
+}
+
+export interface Data {
+  post: Post;
+}
+
 export interface Props {
-  data?: {
-    posts: PostData[];
-  };
+  data?: Data;
 }

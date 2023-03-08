@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import PageTop from "../page-top/page-top";
 import "./all-authors.scss";
 import { Props, Author } from "./types/all-authors.interface";
-// import { socialMediaStyles } from "./types/all-author-styles";
 
 function AllAuthors({ data }: Props) {
   const allAuthors: Author[] = data?.authors;

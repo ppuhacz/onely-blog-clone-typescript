@@ -54,8 +54,8 @@ const Navbar = ({ data }: NavbarProps) => {
   }
 
   // Creating a logic that will check what type (if any) of navbar should be displayed
-  const isPostsPage = path[0] === "category" || path[0] === "posts";
-  const is404Page = path[0] === "404";
+  const isPostsPage: boolean = path[0] === "category" || path[0] === "posts";
+  const is404Page: boolean = path[0] === "404";
   let navClassNames: string = isPostsPage ? "post-page-nav" : "";
 
   if (is404Page) {
