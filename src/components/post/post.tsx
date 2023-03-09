@@ -45,7 +45,7 @@ function Post(): JSX.Element {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>; // mógłbym to zrobić jakoś ładniej, ale po co :)
+    return <div>Loading...</div>;
   }
 
   if (!data?.post) {
@@ -86,84 +86,4 @@ function Post(): JSX.Element {
   );
 }
 
-export default Post;
-
-// @ Q:
-//can i use one api fetch and then modify the queries in other component so it will fetch what has already been fetch without downloading it another time?
-//For example, fetch a whole api that containt post, authors, categories, and then in post component get the post data that matches the id?
-
-// @ A:
-// Yes, you can use a technique called "data caching" to avoid fetching the same data multiple times from an API. Here's one way to implement this technique:
-
-// Create a cache object to store the fetched data. This object should be accessible from all components that need to use it. For example, you could create a cache.ts file with the following code:
-// typescript
-// Copy code
-// interface Cache {
-//   [key: string]: any;
-// }
-
-// const cache: Cache = {};
-
-// export function getFromCache(key: string): any {
-//   return cache[key];
-// }
-
-// export function setInCache(key: string, value: any): void {
-//   cache[key] = value;
-// }
-// This code defines a Cache interface to describe the shape of the cache object, and two functions getFromCache and setInCache to get and set data in the cache.
-
-// Use the cache to store the fetched data. For example, you could modify your API fetching code to store the fetched data in the cache:
-// javascript
-// Copy code
-// import { setInCache } from './cache';
-
-// async function fetchPosts(): Promise<Post[]> {
-//   const response = await fetch('/api/posts');
-//   const data = await response.json();
-//   setInCache('posts', data);
-//   return data;
-// }
-
-// async function fetchAuthors(): Promise<Author[]> {
-//   const response = await fetch('/api/authors');
-//   const data = await response.json();
-//   setInCache('authors', data);
-//   return data;
-// }
-
-// async function fetchCategories(): Promise<Category[]> {
-//   const response = await fetch('/api/categories');
-//   const data = await response.json();
-//   setInCache('categories', data);
-//   return data;
-// }
-// This code fetches the data from the API and stores it in the cache using the setInCache function.
-
-// Use the cached data in other components. For example, in your Post component, you could get the post data that matches the ID from the cached posts data:
-// typescript
-// Copy code
-// import { getFromCache } from '../cache';
-
-// interface Props {
-//   id: string;
-// }
-
-// const Post = ({ id }: Props) => {
-//   const posts = getFromCache('posts') as Post[];
-//   const post = posts.find(p => p.id === id);
-//   if (!post) {
-//     return <div>Loading...</div>;
-//   }
-//   return (
-//     <div>
-//       <h1>{post.title}</h1>
-//       {/* render other post data */}
-//     </div>
-//   );
-// };
-
-// export default Post;
-// This code uses the getFromCache function to get the cached posts data, and then finds the post that matches the given ID.
-
-// By using this technique, you can avoid fetching the same data multiple times from the API, and improve the performance of your application.
+export default PageTop(Post);
