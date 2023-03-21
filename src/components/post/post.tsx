@@ -13,7 +13,7 @@ function Post(): JSX.Element {
   const { id } = params;
 
   // Fetching post that matched the pathname of the url
-
+  // test
   const [data, setData] = useState<Data | null>(null);
   const [loading, setLoading] = useState(true);
 
