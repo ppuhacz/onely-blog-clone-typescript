@@ -1,4 +1,4 @@
-import { Navigate, NavLink, useParams } from "react-router-dom";
+import { Navigate, NavLink, useLocation, useParams } from "react-router-dom";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import { request } from "graphql-request";
 import PageTop from "../page-top/page-top";
@@ -9,19 +9,18 @@ import { useEffect, useState } from "react";
 import { GET_POST } from "./config/GET_POST";
 
 function Post(): JSX.Element {
+  const [data, setData] = useState<Data | null>(null);
+  const [loading, setLoading] = useState(true);
+
   const params = useParams<{ id: string }>();
   const { id } = params;
 
-  // Fetching post that matched the pathname of the url
-  // test
-  const [data, setData] = useState<Data | null>(null);
-  const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     async function fetchPost() {
       try {
         const query = GET_POST;
-
         const variables = {
           slug: id,
         };
@@ -32,7 +31,7 @@ function Post(): JSX.Element {
           variables
         );
 
-        if (data && data) {
+        if (data) {
           setData(data);
           setLoading(false);
         }
@@ -41,16 +40,27 @@ function Post(): JSX.Element {
       }
     }
 
-    fetchPost();
-  }, [id]);
+    // If page is loaded and doesnt have a state, it will fetch the post from the API, otherwise use state
+    if (!location.state) {
+      fetchPost();
+    } else {
+      setData(location.state[0]);
+      setLoading(false);
+    }
+  }, [id, location.state]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loading-container">
+        <div className="loading-circle"></div>
+      </div>
+    );
   }
 
-  if (!data?.post) {
-    return <Navigate to="/404" replace />;
+  if (!data) {
+    return <Navigate to="/404" />;
   }
+  console.log(data);
 
   const { slug, title, date, author, coverImage, content } = data.post;
   return (

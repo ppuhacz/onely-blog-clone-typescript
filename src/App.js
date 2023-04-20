@@ -25,7 +25,9 @@ function App() {
   return (
     <>
       {loading ? (
-        <p>Loading...</p>
+        <div className="loading-container">
+          <div className="loading-circle"></div>
+        </div>
       ) : (
         <Router>
           <div className="App">

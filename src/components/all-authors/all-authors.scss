@@ -44,9 +44,9 @@
   }
 
   .author-card {
-    height: 80vw;
-    max-height: 360px;
-    width: 80vw;
+    height: 256px;
+    // max-height: 360px;
+    width: 256px;
     max-width: 360px;
     position: relative;
     margin-bottom: 4.5vh;
@@ -95,7 +95,7 @@
 
       .author-card-hovered-info {
         position: absolute;
-        top: 20%;
+        top: 10%;
         height: 60%;
         padding: 0 10%;
 
@@ -136,14 +136,19 @@
     margin-bottom: 5rem;
 
     .author-card {
-      width: 100%;
+      width: 183px;
       height: auto;
       margin-bottom: 0;
     }
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
+  .all-authors-container {
+    .author-card {
+      width: 200px;
+    }
+  }
   .all-authors-header {
     .onely-desc-container {
       margin: 0 0 0 10vw;
@@ -160,6 +165,11 @@
 }
 
 @media (min-width: 1024px) {
+  .all-authors-container {
+    .author-card {
+      width: 157px;
+    }
+  }
   .all-authors-header {
     .onely-desc-container {
       width: 50vw;
@@ -171,7 +181,20 @@
   }
 }
 
+@media(min-width: 1439px) {
+  .all-authors-container {
+    .author-card {
+      width: 224px;
+    }
+  }
+}
+
 @media (min-width: 1600px) {
+  .all-authors-container {
+    .author-card {
+      width: 313px;
+    }
+  }
   .all-authors-header {
     width: 95vw;
     clip-path: polygon(-5% -5%,100% -5%,100% calc(100% - 120.00px),calc(100% - 120.00px) 100%,0 100%);

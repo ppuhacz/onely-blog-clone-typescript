@@ -19,7 +19,7 @@ const Home: React.FC<Props> = ({ data }) => {
         recommendedPostPanel.push(
           <div className="recommended-post" key={post.slug}>
             <div className="recommended-post-cover">
-              <NavLink to={"/post/" + post.slug}>
+              <NavLink state={[{ post: post }]} to={"/post/" + post.slug}>
                 <img src={post.coverImage.url} alt="Post cover" />
               </NavLink>
             </div>
@@ -30,7 +30,7 @@ const Home: React.FC<Props> = ({ data }) => {
               </span>
               <br />
               <span>
-                <NavLink to={"/post/" + post.slug}>
+                <NavLink state={[{ post: post }]} to={"/post/" + post.slug}>
                   <h2 className="recommended-post-title">{post.title}</h2>
                 </NavLink>
               </span>
@@ -40,6 +40,7 @@ const Home: React.FC<Props> = ({ data }) => {
               </span>
               <br />
               <NavLink
+                state={[{ post: post }]}
                 to={"/post/" + post.slug}
                 className="recommended-post-read-more"
               >
@@ -65,7 +66,11 @@ const Home: React.FC<Props> = ({ data }) => {
     const mostRecentPosts: JSX.Element[] = [];
     threeLatestPosts.forEach((post) => {
       mostRecentPosts.push(
-        <NavLink to={"/post/" + post.slug} key={post.slug}>
+        <NavLink
+          state={[{ post: post }]}
+          to={"/post/" + post.slug}
+          key={post.slug}
+        >
           <div className="recent-post">
             <img src={post.coverImage.url} alt="Post cover" />
             <span>
@@ -95,8 +100,13 @@ const Home: React.FC<Props> = ({ data }) => {
     const knowledgeBasePosts = allKnowledgeBasePosts?.slice(0, 3) ?? [];
 
     knowledgeBasePosts.forEach((post) => {
+      console.log(post);
       latestKnowledgeBasePosts.push(
-        <NavLink to={`/post/${post.slug}`} key={post.slug}>
+        <NavLink
+          state={[{ post: post }]}
+          to={`/post/${post.slug}`}
+          key={post.slug}
+        >
           <div className="recent-knowledge-posts">
             <img src={post.coverImage.url} alt="Post cover" />
             <span className="knowledge-base-post-info">
@@ -119,7 +129,11 @@ const Home: React.FC<Props> = ({ data }) => {
 
     nextLatestPosts.forEach((post) => {
       recentPosts.push(
-        <NavLink to={"/post/" + post.slug} key={post.slug}>
+        <NavLink
+          state={[{ post: post }]}
+          to={"/post/" + post.slug}
+          key={post.slug}
+        >
           <div className="recent-post">
             <img src={post.coverImage.url} alt="Post cover" />
             <span>
@@ -148,7 +162,7 @@ const Home: React.FC<Props> = ({ data }) => {
               <span className="knowledge-base-title">
                 <h2>Knowledge Base</h2>
                 <NavLink
-                  to="/category/Knowledge-Base/1"
+                  to="/category/knowledge-base/1"
                   className="knowledge-base-read-more"
                 >
                   <strong>Read more</strong>

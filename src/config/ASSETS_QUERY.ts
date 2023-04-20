@@ -54,15 +54,34 @@ query Assets {
     categoryName
     slug
     posts (orderBy: date_DESC){
-      slug
-      title
       author {
         name
+        socialMedia {
+          ... on SocialMedia {
+            instagram
+            linkedIn
+            twitter
+          }
+        }
+        title
+        picture {
+          url
+        }
+      }
+      category {
+        categoryName
+      }
+      content {
+        raw
       }
       coverImage {
         url
       }
       date
+      excerpt
+      slug
+      title
+      recommendedPost
     }
   }
   pages {
