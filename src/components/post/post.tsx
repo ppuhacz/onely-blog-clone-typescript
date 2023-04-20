@@ -72,7 +72,7 @@ function Post(): JSX.Element {
             {author.name} • Published: {date}
           </p>
           <div className="post-cover-container">
-            <img src={coverImage.url} alt="Post cover" />
+            <img src={coverImage.url} alt="Post cover" className="post-cover" />
           </div>
         </div>
       </div>
