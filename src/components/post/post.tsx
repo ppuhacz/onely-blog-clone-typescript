@@ -41,7 +41,7 @@ function Post(): JSX.Element {
     }
 
     // If page is loaded and doesnt have a state, it will fetch the post from the API, otherwise use location's state
-    if (!location.state[0].post) {
+    if (!location.state) {
       fetchPost();
     } else if (location.state[0].post) {
       setData(location.state[0]);
