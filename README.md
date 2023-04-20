@@ -1,3 +1,5 @@
+https://calm-parfait-2f27b9.netlify.app/
+
 # Onely blog clone
 My version of https://www.onely.com/blog clone made using React.js and GraphQL. 
 
