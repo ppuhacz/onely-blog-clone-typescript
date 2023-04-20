@@ -60,7 +60,7 @@ function Post(): JSX.Element {
   if (!data) {
     return <Navigate to="/404" />;
   }
-
+  console.log(data);
   const { slug, title, date, author, coverImage, content } = data.post;
   return (
     <div key={slug}>

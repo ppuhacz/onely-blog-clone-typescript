@@ -56,6 +56,7 @@ query Assets {
     posts (orderBy: date_DESC){
       author {
         name
+        slug
         socialMedia {
           ... on SocialMedia {
             instagram
@@ -95,6 +96,7 @@ query Assets {
   posts (orderBy: date_DESC){
     author {
       name
+      slug
       socialMedia {
         ... on SocialMedia {
           instagram
