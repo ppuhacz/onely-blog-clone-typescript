@@ -31,7 +31,7 @@ function Post(): JSX.Element {
           variables
         );
 
-        if (data) {
+        if (data?.post) {
           setData(data);
           setLoading(false);
         }
@@ -40,10 +40,10 @@ function Post(): JSX.Element {
       }
     }
 
-    // If page is loaded and doesnt have a state, it will fetch the post from the API, otherwise use state
+    // If page is loaded and doesnt have a state, it will fetch the post from the API, otherwise use location's state
     if (!location.state) {
       fetchPost();
-    } else {
+    } else if (location.state[0].post) {
       setData(location.state[0]);
       setLoading(false);
     }
@@ -60,7 +60,6 @@ function Post(): JSX.Element {
   if (!data) {
     return <Navigate to="/404" />;
   }
-  console.log(data);
 
   const { slug, title, date, author, coverImage, content } = data.post;
   return (

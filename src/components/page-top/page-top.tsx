@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 // This component ensures that page will always go to the top on redirect
 // On some devices the page doesnt redirect you to the top of the page, but to the position of the previous site
-// which is most likely some kind of a React bug since same thing happens on instagram
+// which is most likely some kind of a React bug since same thing happens on the desktop version of Instagram
 
 const PageTop = <P extends object>(
   Component: ComponentType<P>

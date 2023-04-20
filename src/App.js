@@ -20,7 +20,6 @@ function App() {
     };
     fetchData();
   }, []);
-  console.log("rerender1");
 
   return (
     <>

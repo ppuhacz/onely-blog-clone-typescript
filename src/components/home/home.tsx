@@ -100,7 +100,6 @@ const Home: React.FC<Props> = ({ data }) => {
     const knowledgeBasePosts = allKnowledgeBasePosts?.slice(0, 3) ?? [];
 
     knowledgeBasePosts.forEach((post) => {
-      console.log(post);
       latestKnowledgeBasePosts.push(
         <NavLink
           state={[{ post: post }]}

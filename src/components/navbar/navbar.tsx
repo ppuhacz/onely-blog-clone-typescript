@@ -56,10 +56,12 @@ const Navbar = ({ data }: NavbarProps) => {
   // Creating a logic that will check what type (if any) of navbar should be displayed
   const isPostsPage: boolean = path[0] === "category" || path[0] === "posts";
   const is404Page: boolean = path[0] === "404";
-  let navClassNames: string = isPostsPage ? "post-page-nav" : "";
+  let navClassNames: string = "";
 
   if (is404Page) {
-    navClassNames += " nav-404-page";
+    navClassNames += "nav-404-page";
+  } else if (isPostsPage) {
+    navClassNames += "post-page-nav";
   }
 
   return (
@@ -75,7 +77,7 @@ const Navbar = ({ data }: NavbarProps) => {
           </li>
           <li key="categories">
             <span className="categories-span">
-              Categories{" "}
+              Categories
               <i className="material-symbols-outlined expand-icon">
                 expand_more
               </i>

@@ -3,7 +3,6 @@ import { useLocation, Location } from "react-router-dom";
 
 const Breadcrumbs: FC = () => {
   const location: Location = useLocation();
-  console.log(location);
   const paths: string[] = location.pathname.split("/").slice(1);
   let breadcrumbs: JSX.Element[] = [];
 

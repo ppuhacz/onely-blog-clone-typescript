@@ -9,8 +9,6 @@ const Category: FC<Props> = ({ data }) => {
   const pagesNum: number = CategoryEnum.numberOfPages;
   if (data) {
     const { categories } = data;
-    console.log(categories);
-    console.log(id);
 
     // Filtering chosen category
     const categoryPosts = categories.filter((category) => category.slug === id);
