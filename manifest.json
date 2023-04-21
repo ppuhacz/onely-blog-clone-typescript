@@ -1,0 +1,16 @@
+{
+  "name": "Onely blog clone",
+  "short_name": "Onely clone",
+  "description": "A clone made based on onely.com/blog",
+  "icons": [
+    {
+      "src": "/public/img/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}
