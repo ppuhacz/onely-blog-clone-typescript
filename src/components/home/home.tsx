@@ -45,7 +45,9 @@ const Home: React.FC<Props> = ({ data }) => {
                 className="recommended-post-read-more"
               >
                 <span>
-                  <p className="recommended-post-read-more-text">Read more</p>
+                  <p className="recommended-post-read-more-text">
+                    Read this article
+                  </p>
                 </span>
               </NavLink>
             </div>
@@ -164,7 +166,7 @@ const Home: React.FC<Props> = ({ data }) => {
                   to="/category/knowledge-base/1"
                   className="knowledge-base-read-more"
                 >
-                  <strong>Read more</strong>
+                  <strong>More posts</strong>
                 </NavLink>
               </span>
               <div className="knowledge-base-grid-container">
@@ -173,11 +175,11 @@ const Home: React.FC<Props> = ({ data }) => {
             </div>
           </section>
           <section className="posts">{recentPosts}</section>
-          <div className="show-more-posts-container">
-            <span className="show-more-posts">
-              <NavLink to="/posts/1">Show more posts</NavLink>
-            </span>
-          </div>
+          <NavLink to="/posts/1">
+            <div className="show-more-posts-container">
+              <span className="show-more-posts">Show more posts</span>
+            </div>
+          </NavLink>
         </div>
       </main>
     );

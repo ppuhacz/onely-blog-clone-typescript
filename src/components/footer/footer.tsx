@@ -18,6 +18,7 @@ function Footer(): JSX.Element {
           href="https://www.facebook.com/Onelycom"
           target="_blank"
           rel="noreferrer"
+          aria-label="Onely's facebook page"
         >
           <i className="fa fa-facebook social-media-footer" />
         </a>
@@ -25,10 +26,16 @@ function Footer(): JSX.Element {
           href="https://www.linkedin.com/company/onelycom"
           target="_blank"
           rel="noreferrer"
+          aria-label="Onely's linkedin page"
         >
           <i className="fa fa-linkedin social-media-footer" />
         </a>
-        <a href="https://twitter.com/onelycom" target="_blank" rel="noreferrer">
+        <a
+          href="https://twitter.com/onelycom"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Onely's twitter page"
+        >
           <i className="fa fa-twitter social-media-footer" />
         </a>
       </div>

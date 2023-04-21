@@ -63,20 +63,16 @@ function Pagination({ data, itemsPerPage, pageRoute }: Props) {
           {currentPageNumber === 1 ? (
             ""
           ) : (
-            <span className="pagination-control">
-              <NavLink to={`/${pageRoute}/${currentPageNumber - 1}`}>
-                ← Previous
-              </NavLink>
-            </span>
+            <NavLink to={`/${pageRoute}/${currentPageNumber - 1}`}>
+              <span className="pagination-control">← Previous</span>
+            </NavLink>
           )}
           {currentPageNumber === pages.length - 1 ? (
             ""
           ) : (
-            <span className="pagination-control">
-              <NavLink to={`/${pageRoute}/${currentPageNumber + 1}`}>
-                Next →
-              </NavLink>
-            </span>
+            <NavLink to={`/${pageRoute}/${currentPageNumber + 1}`}>
+              <span className="pagination-control">Next →</span>
+            </NavLink>
           )}
         </div>
       </main>
