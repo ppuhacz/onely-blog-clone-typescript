@@ -1,9 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /category/
+Allow: /post/
+Allow: /posts/
+Allow: /author/
+Allow: /authors/
+
 User-agent: Googlebot
 User-agent: AdsBot-Google
 Disallow: /
 
-user-agent: *
-disallow: /downloads/
-
-user-agent: magicsearchbot
-disallow: /uploads/
