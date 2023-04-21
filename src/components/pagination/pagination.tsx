@@ -11,7 +11,7 @@ function Pagination({ data, itemsPerPage, pageRoute }: Props) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [currentPageNumber]);
 
   if (data.length) {
     // Creating a pagination with `itemsPerPage` items per site
@@ -36,14 +36,14 @@ function Pagination({ data, itemsPerPage, pageRoute }: Props) {
     } else if (currentPageNumber > pages.length - 1) {
       return <Navigate to={`/${pageRoute}/${pages.length - 1}`} />;
     } else if (isNaN(parseInt(currentPageNumber.toString(), 10))) {
-      return <Navigate to="/404" />;
+      return <Navigate to='/404' />;
     }
 
     currentPage.forEach((item, index) => {
       itemsDisplayed.push(
         <NavLink to={`/post/${item.slug}`} key={index}>
-          <div className="recent-item">
-            <img src={item.coverImage.url} alt="Item cover" />
+          <div className='recent-item'>
+            <img src={item.coverImage.url} alt='Item cover' />
             <span>
               <p>{item.author.name},</p>
               <p>{item.date}</p>
@@ -58,20 +58,20 @@ function Pagination({ data, itemsPerPage, pageRoute }: Props) {
 
     return (
       <main>
-        <div className="all-items-container">{itemsDisplayed}</div>
-        <div className="pagination-container">
+        <div className='all-items-container'>{itemsDisplayed}</div>
+        <div className='pagination-container'>
           {currentPageNumber === 1 ? (
             ""
           ) : (
             <NavLink to={`/${pageRoute}/${currentPageNumber - 1}`}>
-              <span className="pagination-control">← Previous</span>
+              <span className='pagination-control'>← Previous</span>
             </NavLink>
           )}
           {currentPageNumber === pages.length - 1 ? (
             ""
           ) : (
             <NavLink to={`/${pageRoute}/${currentPageNumber + 1}`}>
-              <span className="pagination-control">Next →</span>
+              <span className='pagination-control'>Next →</span>
             </NavLink>
           )}
         </div>
