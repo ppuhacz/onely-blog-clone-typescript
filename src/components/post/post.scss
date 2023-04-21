@@ -17,7 +17,7 @@
       left: auto;
       right: auto;
     }
-    color: #FFF;
+    color: $white;
   }
 
   h1 {
@@ -110,7 +110,7 @@
   .post-author-info {
     position: relative;
     background-color: $darkbackground;
-    color: #fff;
+    color: $white;
     margin: 0 auto 15vh;
     max-width: 740px;
 
@@ -137,7 +137,7 @@
       }
 
       a {
-        color: #fff;
+        color: $white;
       }
     }
   }
@@ -149,7 +149,7 @@
     right: 0;
     width: 0;
     height: 0;
-    border-bottom: 25px solid #fff;
+    border-bottom: 25px solid $white;
     border-left: 25px solid transparent;
   }
 }

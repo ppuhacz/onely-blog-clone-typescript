@@ -1,20 +1,20 @@
 @import "../../styles/variables.scss";
 
-$author-header-width: 80vw;
-$author-posts-margin-top: 13vh;
-$author-posts-margin-bottom: 8vh;
+$authorHeaderWidth: 80vw;
+$authorPostsMarginTop: 13vh;
+$authorPostsMarginBottom: 8vh;
 
 .author-header-container {
   background-color: $darkbackground;
   padding: 5rem 0 8rem;
 
   .author-header {
-    width: $author-header-width;
+    width: $authorHeaderWidth;
     margin: 0 auto;
 
     h1 {
       padding-top: 3vh;
-      color: #fff;
+      color: $white;
       font-size: 2.8rem;
     }
 
@@ -38,7 +38,7 @@ $author-posts-margin-bottom: 8vh;
 }
 
 .author-questions-container {
-  width: $author-header-width;
+  width: $authorHeaderWidth;
   margin: 0 auto;
 
   .question-and-answer {
@@ -63,7 +63,7 @@ $author-posts-margin-bottom: 8vh;
         right: 0;
         width: 0;
         height: 0;
-        border-bottom: 90px solid #fff;
+        border-bottom: 90px solid $white;
         border-left: 90px solid transparent;
       }
     }
@@ -71,8 +71,8 @@ $author-posts-margin-bottom: 8vh;
 }
 
 .authors-posts-container {
-  width: $author-header-width;
-  margin: $author-posts-margin-top auto $author-posts-margin-bottom;
+  width: $authorHeaderWidth;
+  margin: $authorPostsMarginTop auto $authorPostsMarginBottom;
 
   .authors-recent-posts {
     margin-bottom: 8vh;
@@ -107,10 +107,10 @@ $author-posts-margin-bottom: 8vh;
 }
 
 @media (min-width: 1171px) {
-  $author-header-width: 95vw;
+  $authorHeaderWidth: 95vw;
 
   .author-header-container {
-    width: $author-header-width;
+    width: $authorHeaderWidth;
     clip-path: polygon(-5% -5%, 100% -5%, 100% calc(100% - 120.00px), calc(100% - 120.00px) 100%, 0 100%);
 
     .author-header {

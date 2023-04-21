@@ -1,3 +1,3 @@
 export enum AllPostsEnum {
-  numberOfPages = 9
+  numberOfPosts = 9
 }

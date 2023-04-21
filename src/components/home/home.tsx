@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import PageTop from "../page-top/page-top";
 import "./home.scss";
 import { Props } from "./types/home.interface";
+import { CategoryEnum } from "./types/home.enum";
 
 const Home: React.FC<Props> = ({ data }) => {
   if (data) {
@@ -91,7 +92,7 @@ const Home: React.FC<Props> = ({ data }) => {
 
     const allKnowledgeBasePosts =
       data?.categories.find(
-        (category) => category.categoryName === "Knowledge Base"
+        (category) => category.categoryName === CategoryEnum.categoryDisplayed
       )?.posts ?? [];
 
     allKnowledgeBasePosts.sort(function (post1, post2) {

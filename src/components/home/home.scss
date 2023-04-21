@@ -18,7 +18,7 @@ a {
   flex-direction: column;
   width: 80vw;
   margin: 0 auto;
-  color: #fff;
+  color: $white;
 }
 
 .recommended-post:hover .recommended-post-title {
@@ -41,7 +41,7 @@ a {
 
   &-title {
     padding: 0;
-    color: #fff;
+    color: $white;
   }
 
   &-date {
@@ -171,7 +171,7 @@ main img {
   }
 
   &-post-title {
-    color: #FFF;
+    color: $white;
     margin-bottom: 11vh;
   }
 
@@ -182,7 +182,7 @@ main img {
     right: 0;
     bottom: 100%;
     border-bottom: 70px solid $darkbackground;
-    border-right: 70px solid #fff;
+    border-right: 70px solid $white;
   }
 
   &:after {
@@ -192,7 +192,7 @@ main img {
     left: 0;
     width: 0;
     height: 0;
-    border-bottom: 70px solid #fff;
+    border-bottom: 70px solid $white;
     border-right: 70px solid transparent;
   }
 }
@@ -201,7 +201,7 @@ main img {
   width: 80vw;
   margin: auto;
   text-align: center;
-  color:#fff;
+  color:$white;
   font-weight: bold;
 
 

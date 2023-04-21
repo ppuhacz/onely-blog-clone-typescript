@@ -4,14 +4,14 @@ import { Props } from "./types/all-posts.interface";
 import { AllPostsEnum } from "./types/all-posts.enum";
 
 const AllPosts = ({ data }: Props) => {
-  const numberOfPages = AllPostsEnum.numberOfPages;
+  const numberOfPosts: number = AllPostsEnum.numberOfPosts;
   if (!data) {
     return null;
   }
   return (
     <Pagination
       data={data.posts}
-      itemsPerPage={numberOfPages}
+      itemsPerPage={numberOfPosts}
       pageRoute="posts"
     />
   );

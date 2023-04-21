@@ -17,15 +17,15 @@ const Author = memo((props: Props) => {
     if (author) {
       // Iterating through all posts of chosen author
       const authorsPosts = author.posts.map((post) => (
-        <NavLink to={`/post/${post.slug}`} key={post.slug}>
+        <NavLink to={`/post/${post?.slug}`} key={post?.slug}>
           <div className="recent-post">
-            <img src={post.coverImage.url} alt="Post cover" />
+            <img src={post?.coverImage.url} alt="Post cover" />
             <span>
-              <p>{author.name},</p>
-              <p>{post.date}</p>
+              <p>{author?.name},</p>
+              <p>{post?.date}</p>
             </span>
             <span>
-              <h3>{post.title}</h3>
+              <h3>{post?.title}</h3>
             </span>
           </div>
         </NavLink>
@@ -105,15 +105,13 @@ const Author = memo((props: Props) => {
                 return null;
               })}
             </div>
-            {authorsPosts.length ? (
+            {authorsPosts.length && (
               <div className="authors-posts-container">
                 <div className="authors-recent-posts">
                   <h3>All posts from this author:</h3>
                 </div>
                 <div className="authors-posts">{authorsPosts}</div>
               </div>
-            ) : (
-              ""
             )}
           </div>
         </main>

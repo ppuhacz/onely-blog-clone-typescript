@@ -6,7 +6,7 @@ import { CategoryEnum } from "./types/category.enum";
 
 const Category: FC<Props> = ({ data }) => {
   const { id } = useParams<{ id: string }>();
-  const pagesNum: number = CategoryEnum.numberOfPages;
+  const itemsPerPage: number = CategoryEnum.numberOfPages;
   if (data) {
     const { categories } = data;
 
@@ -19,7 +19,7 @@ const Category: FC<Props> = ({ data }) => {
       return (
         <Pagination
           data={matchedPosts.posts}
-          itemsPerPage={pagesNum}
+          itemsPerPage={itemsPerPage}
           pageRoute={`category/` + categoryPosts[0].slug}
         />
       );

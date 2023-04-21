@@ -6,7 +6,7 @@ import "./header.scss";
 const Header = () => {
   const [sticky, setSticky] = useState<boolean>(false);
   const location: Location = useLocation();
-  const path = location.pathname.split("/").slice(1);
+  const path: string[] = location.pathname.split("/").slice(1);
 
   useEffect(() => {
     const handleScroll = () => setSticky(window.pageYOffset > 25);
@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header
       className={`header-default ${sticky ? "header-sticky" : ""}
-        // ${path[0] === "404" ? "header-404-page" : ""}`}
+        ${path[0] === "404" ? "header-404-page" : ""}`}
     >
       <div>
         <NavLink to="/" className="nav-link">

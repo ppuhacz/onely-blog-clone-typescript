@@ -11,7 +11,7 @@ function Pagination({ data, itemsPerPage, pageRoute }: Props) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [currentPageNumber]);
+  }, []);
 
   if (data.length) {
     // Creating a pagination with `itemsPerPage` items per site

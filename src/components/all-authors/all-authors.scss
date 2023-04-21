@@ -10,7 +10,7 @@
 
     .onely-desc-title {
       font-size: 1.6rem;
-      color: #fff;
+      color: $white;
       line-height: 3.5rem;
       margin-bottom: 5vh;
     }
@@ -57,14 +57,14 @@
     }
 
     .social-media {
-      color: #3dd44f ;
+      color: $limeGreen ;
       font-size: 1.6rem;
       margin-right: 1rem;
     };
 
 
     a {
-      color: #fff;
+      color: $white;
       transition: 0.35s $transitionfunction;
 
       &:hover {
@@ -98,15 +98,13 @@
         height: 60%;
         padding: 0 10%;
 
-
-
         h3 {
           font-size: 1.2rem;
           margin-bottom: 25px;
         }
 
         .author-title {
-          color: #fff;
+          color: $white;
           margin-bottom: 25px;
         }
 
