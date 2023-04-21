@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { register } from "serviceWorker";
 import { request } from "graphql-request";
 import "./styles/app.scss";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -19,6 +20,7 @@ function App() {
       setLoading(false);
     };
     fetchData();
+    register();
   }, []);
 
   return (
